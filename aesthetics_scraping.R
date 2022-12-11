@@ -4,7 +4,6 @@ library(dplyr)
 library(stringr)
 library(tidyr)
 library(rvest)
-library(janitor)
 
 # url of aesthetics wiki list of aesthetics page
 url <- 'https://aesthetics.fandom.com/wiki/List_of_Aesthetics'
@@ -75,9 +74,5 @@ aes_df$depop_results <- res
 aes_df$date <- as.character(Sys.Date())
 
 # save as csv
-write_csv(aes_df,paste0('data/',Sys.Date(),'_aesthetics','.csv'))    
- 
-
-
-
+write_csv(aes_df,paste0('data/',Sys.Date(),'_aesthetics','.csv'))
        
