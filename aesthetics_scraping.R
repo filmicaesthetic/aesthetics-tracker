@@ -75,4 +75,3 @@ aes_df$date <- as.character(Sys.Date())
 
 # save as csv
 write.csv(aes_df,paste0('data/',Sys.Date(),'_aesthetics','.csv'))
-       
