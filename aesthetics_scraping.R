@@ -64,6 +64,8 @@ for (i in 1:nrow(aes_df)) {
   
   res_it <- depop_results(aes_df$aesthetic[i])
   
+  res <- c(res, res_it)
+  
   Sys.sleep(0.4)
   
 }
