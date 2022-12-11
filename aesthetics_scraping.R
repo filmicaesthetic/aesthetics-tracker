@@ -64,7 +64,7 @@ for (i in 1:nrow(aes_df)) {
   
   res_it <- depop_results(aes_df$aesthetic[i])
   
-  Sys.sleep(1)
+  Sys.sleep(0.4)
   
 }
 
@@ -74,5 +74,5 @@ aes_df$depop_results <- res
 aes_df$date <- as.character(Sys.Date())
 
 # save as csv
-write_csv(aes_df,paste0('data/',Sys.Date(),'_aesthetics','.csv'))
+write.csv(aes_df,paste0('data/',Sys.Date(),'_aesthetics','.csv'))
        
