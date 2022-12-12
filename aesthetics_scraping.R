@@ -57,21 +57,23 @@ depop_results <- function(aurl) {
 }
 
 # set up blank vector
-res <- c()
+res <- data.frame()
 
 # collect search results
-for (i in 1:nrow(aes_df)) {
+for (i in 1:10) {
   
-  res_it <- depop_results(aes_df$aesthetic[i])
+  res_it <- data.frame(aesthetic = c(aes_df$aesthetic[i]),
+                       depop_results = c(depop_results(aes_df$aesthetic[i])))
   
-  res <- c(res, res_it)
+  res <- rbind(res, res_it)
   
   Sys.sleep(0.4)
   
 }
 
 # join results to df
-aes_df$depop_results <- res
+aes_df <- aes_df |>
+  left_join(res, by = "aesthetic")
 # add date column
 aes_df$date <- as.character(Sys.Date())
 
