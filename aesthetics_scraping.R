@@ -39,10 +39,51 @@ aes_df <- aes_df |>
   mutate(aesthetic = str_split(vc, "\n")) |>
   unnest(cols = c(aesthetic))
 
+
+# function to add negative keywords to avoid including other aesthetics
+minus_words <- function(x) {
+  
+  words <- str_split(x, " ")[[1]]
+  
+  aes_sel <- c()
+  
+  for (i in 1:length(words)) {
+    
+    aes_sel_it <- aes_df$aesthetic[grepl(tolower(words[i]), tolower(aes_df$aesthetic))]
+    
+    aes_sel_it <- aes_sel_it[aes_sel_it != x]
+    
+    aes_sel_it <- do.call(paste, c(as.list(aes_sel_it), sep = " "))
+    
+    if (length(aes_sel_it > 0)) {
+      
+      aes_sel_split <- str_split(aes_sel_it, " ")[[1]]
+      
+    } else {
+      aes_sel_split <- NULL
+    }
+    
+    aes_sel <- c(aes_sel, aes_sel_split)
+    
+  }
+  
+  aes_sel <- aes_sel[!(aes_sel %in% words)]
+  aes_sel <- unique(aes_sel)
+  
+  list_x <- do.call(paste, c(as.list(aes_sel), sep = "%20-"))
+  
+  list_fin <- paste0("-", list_x)
+  
+  return(list_fin)
+  
+}
+
 # function to look up search results on depop
 depop_results <- function(aurl) {
   
-  url_it <- paste0("https://www.depop.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27%20aesthetic")
+  neg_key <- minus_words(aurl)
+  
+  url_it <- paste0("https://www.depop.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27%20aesthetic%20",neg_key)
   
   res <- url_it |>
     read_html() |>
@@ -67,7 +108,7 @@ for (i in 1:10) {
   
   res <- rbind(res, res_it)
   
-  Sys.sleep(0.4)
+  Sys.sleep(0.3)
   
 }
 
