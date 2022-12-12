@@ -25,7 +25,7 @@ vc <- c()
 # save all table columns to vc
 for (i in (1:length(url_html))) {
   
-  vc_it <- c(as.character(unlist(as.data.frame(url_html[[18]]), use.names=FALSE)))
+  vc_it <- c(as.character(unlist(as.data.frame(url_html[[i]]), use.names=FALSE)))
   
   vc <- c(vc, vc_it)
   
