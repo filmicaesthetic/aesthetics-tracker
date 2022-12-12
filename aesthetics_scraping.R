@@ -42,7 +42,7 @@ aes_df <- aes_df |>
 # function to look up search results on depop
 depop_results <- function(aurl) {
   
-  url_it <- paste0("https://www.depop.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27aesthetic")
+  url_it <- paste0("https://www.depop.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27%20aesthetic")
   
   res <- url_it |>
     read_html() |>
