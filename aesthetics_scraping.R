@@ -37,7 +37,8 @@ aes_df <- data.frame(aesthetic = c(vc))
 # split entries into individual rows
 aes_df <- aes_df |>
   mutate(aesthetic = str_split(vc, "\n")) |>
-  unnest(cols = c(aesthetic))
+  unnest(cols = c(aesthetic)) |>
+  filter(aesthetic != "")
 
 
 # function to add negative keywords to avoid including other aesthetics
