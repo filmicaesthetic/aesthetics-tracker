@@ -101,7 +101,7 @@ depop_results <- function(aurl) {
 res <- data.frame()
 
 # collect search results
-for (i in 1:10) {
+for (i in 1:nrow(aes_df)) {
   
   res_it <- data.frame(aesthetic = c(aes_df$aesthetic[i]),
                        depop_results = c(depop_results(aes_df$aesthetic[i])))
