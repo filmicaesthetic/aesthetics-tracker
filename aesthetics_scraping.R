@@ -83,6 +83,8 @@ minus_words <- function(x) {
 # function to look up search results on depop
 depop_results <- function(aurl) {
   
+  # replace & with %26 to search correctly
+  aurl <- gsub("&", "%26", aurl)
   # get negative keyword string
   neg_key <- minus_words(aurl)
   # create url string
