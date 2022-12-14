@@ -1,0 +1,95 @@
+---
+title: "aesthetics-tracker"
+output: github_document
+date: "2022-12-14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+## Aesthetic Trends
+
+This project monitors the [Aesthetics Wiki](https://aesthetics.fandom.com/wiki/Aesthetics_Wiki) on Fandom.com for new aesthetics, and then checks Depop for the number of search results for the exact phrase + "aesthetic".
+
+```{r echo=FALSE}
+pacman::p_load(dplyr, ggplot2, tidyr, showtext)
+
+files <- list.files("data")
+files <- files[grepl("aesthetics", files) == TRUE]
+
+df <- data.frame()
+
+for (i in 1:length(files)) {
+  
+  df_it <- read.csv(paste0("data/",files[i]))
+  
+  df <- rbind(df, df_it)
+  
+}
+
+customGreen = "#71CA97"
+
+customRed = "#ff7f7f"
+```
+
+```{r echo = FALSE}
+
+df_fl <- df |>
+  select(-X) |>
+  replace_na(replace = list(depop_results = 0)) |>
+  filter(date %in% c(min(date), max(date))) |>
+  pivot_wider(id_cols = c(aesthetic), names_from = "date", values_from = "depop_results")
+
+colnames(df_fl) <- c("aesthetic", "min_date", "max_date")
+
+df_summ <- df_fl |>
+  mutate(diff = max_date - min_date,
+         diff_perc = diff / min_date) |>
+  filter(aesthetic != "") |>
+  arrange(-max_date) |>
+  mutate(col_group = ifelse(diff_perc >= 0.03, "pos", ifelse(diff_perc > -0.03, "mid", "neg"))) |>
+  mutate(rank = floor(rank(-max_date)))
+```
+
+```{r fig.width = 10, fig.height=20, echo=FALSE, warning=FALSE, message=FALSE}
+pal <- c("pos" = customGreen,
+         "mid" = "#f7f5f5",
+         "neg" = customRed)
+
+alpha_pal <- c("pos" = 1,
+               "mid" = 0.3,
+               "neg" = 1)
+
+shape_pal <- c("pos" = 2,
+               "mid" = 1,
+               "neg" = 6)
+
+plot <- df_summ |>
+  head(50) |>
+  ggplot(aes(y = reorder(aesthetic, max_date, sum))) +
+  geom_col(aes(x = 1), fill = "#f0e9e9", width = 0.8) +
+  geom_segment(aes(x = 0.7, xend = 0.9, yend = aesthetic, color = col_group), size = 6) +
+  geom_point(aes(x = 0.72, shape = col_group, alpha = col_group), color = "#1d1d1d", stroke = 1, size = 3) +
+  geom_text(aes(x = 0.1, label = toupper(aesthetic)), family = "Poppins", size = 4.6, hjust = 0, vjust = 0.5) +
+  geom_text(aes(x = 0.05, label = rank), size = 3.5, family = "Poppins") +
+  geom_text(aes(x = 0.65, label = paste0(scales::comma(max_date)," results")), hjust = 1, family = "Poppins") +
+  geom_text(aes(x = 0.8, label = scales::percent(diff_perc, 0.1)), hjust = 0.5, size = 4, family = "Poppins") +
+  scale_shape_manual(values = shape_pal) +
+  scale_alpha_manual(values = alpha_pal) +
+  scale_color_manual(values = pal) +
+  labs(title = paste0("Top Aesthetics by Depop search results | ", as.character(max(df$date)))) +
+  theme_minimal() +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none",
+        panel.grid = element_blank())
+
+plot
+```
+
+## Web scraping automation
+
+Made with help from amrrs/scrape-automation:
+
+[![nifty50scrape](https://github.com/amrrs/scrape-automation/actions/workflows/main.yml/badge.svg)](https://github.com/amrrs/scrape-automation/actions/workflows/main.yml)
