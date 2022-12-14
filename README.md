@@ -1,0 +1,18 @@
+aesthetics-tracker
+================
+2022-12-14
+
+## Aesthetic Trends
+
+This project monitors the [Aesthetics
+Wiki](https://aesthetics.fandom.com/wiki/Aesthetics_Wiki) on Fandom.com
+for new aesthetics, and then checks Depop for the number of search
+results for the exact phrase + “aesthetic”.
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+## Web scraping automation
+
+Made with help from amrrs/scrape-automation:
+
+[![nifty50scrape](https://github.com/amrrs/scrape-automation/actions/workflows/main.yml/badge.svg)](https://github.com/amrrs/scrape-automation/actions/workflows/main.yml)
