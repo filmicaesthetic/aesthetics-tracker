@@ -26,10 +26,10 @@ jobs:
         R -e 'install.packages("rvest")'
     # Run R script
     - name: Scrape
-      run: Rscript aesthetics_scraping.R
+      run: Rscript scripts/aesthetics_scraping.R
     # Run README render
     - name: Render
-      run: Rscript render_readme.R
+      run: Rscript scripts/render_readme.R
       
  # Add new files in data folder, commit along with other modified files, push
     - name: Commit files

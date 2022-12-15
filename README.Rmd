@@ -1,7 +1,7 @@
 ---
 title: "aesthetics-tracker"
 output: github_document
-date: "2022-12-14"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
 ```{r setup, include=FALSE}
