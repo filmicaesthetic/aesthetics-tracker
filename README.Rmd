@@ -69,16 +69,19 @@ shape_pal <- c("pos" = 2,
                "mid" = 1,
                "neg" = 6)
 
+font_add_google("Poppins", "Poppins")
+showtext_auto()
+
 plot <- df_summ |>
   head(50) |>
   ggplot(aes(y = reorder(aesthetic, max_date, sum))) +
   geom_col(aes(x = 1), fill = "#f0e9e9", width = 0.8) +
   geom_segment(aes(x = 0.7, xend = 0.9, yend = aesthetic, color = col_group), size = 6) +
   geom_point(aes(x = 0.72, shape = col_group, alpha = col_group), color = "#1d1d1d", stroke = 1, size = 3) +
-  geom_text(aes(x = 0.1, label = toupper(aesthetic)), size = 5, hjust = 0, vjust = 0.5) +
-  geom_text(aes(x = 0.05, label = rank), size = 3.5) +
-  geom_text(aes(x = 0.65, label = paste0(scales::comma(max_date)," results")), hjust = 1) +
-  geom_text(aes(x = 0.8, label = scales::percent(diff_perc, 0.1)), hjust = 0.5, size = 4) +
+  geom_text(aes(x = 0.1, label = toupper(aesthetic)), family = "Poppins", size = 5.5, hjust = 0, vjust = 0.5) +
+  geom_text(aes(x = 0.05, label = rank), family = "Poppins", size = 3.5) +
+  geom_text(aes(x = 0.65, label = paste0(scales::comma(max_date)," results")), family = "Poppins", size = 4.5, hjust = 1) +
+  geom_text(aes(x = 0.8, label = scales::percent(diff_perc, 0.1)), hjust = 0.5, family = "Poppins", size = 4) +
   scale_shape_manual(values = shape_pal) +
   scale_alpha_manual(values = alpha_pal) +
   scale_color_manual(values = pal) +
@@ -86,6 +89,7 @@ plot <- df_summ |>
   theme_minimal() +
   theme(axis.text = element_blank(),
         axis.title = element_blank(),
+        plot.title = element_text(family = "Poppins"),
         legend.position = "none",
         panel.grid = element_blank())
 
