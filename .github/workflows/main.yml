@@ -24,14 +24,9 @@ jobs:
         R -e 'install.packages("stringr")'
         R -e 'install.packages("tidyr")'
         R -e 'install.packages("rvest")'
-        R -e 'install.packages("rmarkdown")'
-        R -e 'install.packages("knitr")'
     # Run R script
     - name: Scrape
       run: Rscript scripts/aesthetics_scraping.R
-    # Run README render
-    - name: Render
-      run: Rscript scripts/render_readme.R
       
  # Add new files in data folder, commit along with other modified files, push
     - name: Commit files
