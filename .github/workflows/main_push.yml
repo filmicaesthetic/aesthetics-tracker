@@ -31,10 +31,8 @@ jobs:
         R -e 'install.packages("showtext")'
     # Run README render
     - name: Render
-      uses: lc5415/rmarkdown-action@v1
-      with:
-        input_file: scripts/render_readme.R
-        output_format: github_document
+      uses: rocker/r-rmd@v1
+      run: scripts/render_readme.R
       
  # Add new files in data folder, commit along with other modified files, push
     - name: Commit files
