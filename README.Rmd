@@ -91,7 +91,9 @@ plot <- df_summ |>
         axis.title = element_blank(),
         plot.title = element_text(family = "Poppins"),
         legend.position = "none",
-        panel.grid = element_blank())
+        panel.grid = element_blank(),
+        panel.background = element_blank(),
+        plot.background = element_blank())
 
 plot
 ```

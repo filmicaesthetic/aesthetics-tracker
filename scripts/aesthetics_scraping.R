@@ -14,30 +14,17 @@ url <-  url(url, "rb")
 # extract all tables on page
 url_html <- url |>
   read_html() |>
-  html_table()
+  html_nodes("ul") |>
+  html_nodes("li") |>
+  html_text2()
 
 # close connection
 close(url)
 
-# set up blank vector
-vc <- c()
+start <- str_which(url_html, "Single-Subject Aesthetics") + 1
+end <- str_which(url_html, "Categories:") - 1
 
-# save all table columns to vc
-for (i in (1:length(url_html))) {
-  
-  vc_it <- c(as.character(unlist(as.data.frame(url_html[[i]]), use.names=FALSE)))
-  
-  vc <- c(vc, vc_it)
-  
-}
-
-# convert to data frame
-aes_df <- data.frame(aesthetic = c(vc))
-
-# split entries into individual rows
-aes_df <- aes_df |>
-  mutate(aesthetic = str_split(vc, "\n")) |>
-  unnest(cols = c(aesthetic)) |>
+aes_df <- data.frame(aesthetic = c(url_html[start:end])) |>
   filter(aesthetic != "")
 
 

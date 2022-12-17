@@ -1,0 +1,65 @@
+---
+title: "Trending Aesthetics"
+output: html_document
+date: "2022-12-15"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+
+files <- list.files("data")
+files <- files[grepl("aesthetics", files) == TRUE]
+
+df <- data.frame()
+
+for (i in 1:length(files)) {
+  
+  df_it <- read.csv(paste0("data/",files[i]))
+  
+  df <- rbind(df, df_it)
+  
+}
+
+df_fl <- df |>
+  select(-X) |>
+  replace_na(replace = list(depop_results = 0)) |>
+  filter(date %in% c(min(date), max(date))) |>
+  pivot_wider(id_cols = c(aesthetic), names_from = "date", values_from = "depop_results")
+
+colnames(df_fl) <- c("aesthetic", "min_date", "max_date")
+
+df_summ <- df_fl |>
+  mutate(diff = max_date - min_date,
+         diff_perc = diff / min_date) |>
+  filter(aesthetic != "") |>
+  arrange(-max_date) |>
+  mutate(col_group = ifelse(diff_perc >= 0.03, "pos", ifelse(diff_perc > -0.03, "mid", "neg"))) |>
+  mutate(rank = floor(rank(-max_date)))
+
+test_img <- "https://static.wikia.nocookie.net/aesthetics/images/4/4a/Candelabra%2C_by_Gyula_Pap%2C_1922%2C_brass.jpeg"
+
+```
+
+:::: {style="display: flex;"}
+
+::: {style='height: 200px; margin: 2px; background-image: url("`r test_img`"); background-size: cover;'}
+
+test text 1
+:::
+
+::: {}
+
+test text 2
+:::
+
+::: {}
+
+test text 3
+:::
+
+::::
