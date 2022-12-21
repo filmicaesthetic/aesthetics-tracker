@@ -54,6 +54,14 @@ df_summ <- df_fl |>
   arrange(-max_date) |>
   mutate(col_group = ifelse(diff_perc >= 0.03, "pos", ifelse(diff_perc > -0.03, "mid", "neg"))) |>
   mutate(rank = floor(rank(-max_date)))
+
+dly_tbl <- df_summ |>
+  select(aesthetic, max_date, col_group)
+
+yday_table <- read.csv("data/current_league_table.csv")
+write.csv(yday_table, "data/prev_league_table.csv")
+write.csv(dly_tbl, "data/current_league_table.csv", row.names = FALSE)
+  
 ```
 
 ```{r fig.width = 10, fig.height=50, echo=FALSE, warning=FALSE, message=FALSE}

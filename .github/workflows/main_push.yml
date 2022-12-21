@@ -36,6 +36,9 @@ jobs:
     # Run README render
     - name: Render
       run: Rscript -e 'rmarkdown::render("README.Rmd")'
+    # Run R script
+    - name: HTMLcode
+      run: Rscript scripts/create_index_html.R
       
  # Add new files in data folder, commit along with other modified files, push
     - name: Commit files
