@@ -1659,19 +1659,18 @@ input, select, textarea {
 
 			#main .thumb > h2 {
 				pointer-events: none;
-				bottom: 0.275em;
-				font-size: 1.4em;
-				left: 2.1875em;
+				top: 5.275em;
+				font-size: 1em;
+				left: 0em;
 				color: #000000;
 				background-color: #f2f1ed;
 				text-shadow: #a8eddd 0 -2px;
-				padding: 0em 0.4em 0em 0.4em;
+				padding: 0em 0.4em 0em 4em;
 				margin: 0;
 				position: absolute;
 				z-index: 1;
 				text-transform: none;
-				transform: rotate(-90deg) translate(0, -100%);
-				transform-origin: 0 0;
+				vertical-align: top;
 			}
 
 			#main .thumb > h3 {
