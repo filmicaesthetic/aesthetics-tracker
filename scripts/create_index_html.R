@@ -42,7 +42,7 @@ header_code <- '<!DOCTYPE HTML>
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.html"><strong>Trending Aesthetics</strong> Top 100</a></h1>
+						<h1><a href="index.html"><strong>Trending Aesthetics</strong><br>Top 100</a></h1>
 						<nav>
 							<ul>
 								<li><a href="#footer" class="icon solid fa-info-circle">What?</a></li>
@@ -93,16 +93,14 @@ footer_code <- '</div>
                                               </body>
                                               </html>'
 
-# article template
-' <!-- Eurovision -->
-						<article class="thumb">
-							<a href="images/fulls/eurovision.png" class="image"><img src="images/thumbs/eurovision.jpg" alt="" /></a>
-							<h2>VISUALISATION | Eurovision</h2>
-							<a href = "https://github.com/filmicaesthetic/Tidy-Tuesday-2022/blob/main/2022%20Week%2020%20-%20Eurovision/Eurovision%20Map.R"><button>View this project on Github</button></a></p>
-						</article>'
 
 tbl <- read.csv("data/current_league_table.csv") |>
   head(100)
+
+yday_tbl <- read.csv("data/prev_league_table.csv") |>
+  head(100) |>
+  mutate(yday_rank = row_number()) |>
+  select(aesthetic, yday_rank)
 
 # function to extract main image from wiki page
 get_main_img <- function(url) {
@@ -125,17 +123,33 @@ get_main_img <- function(url) {
 
 
 # create wiki url and extract images
-tbl_ext <- tbl |>
+tbl_get <- tbl |>
   mutate(aes_wiki_link = paste0("https://aesthetics.fandom.com/wiki/",gsub(" ", "_", gsub("2-Tone", "2 Tone", aesthetic)))) |>
   mutate(rank = row_number()) |>
   rowwise() |>
   mutate(main_img = get_main_img(aes_wiki_link)) |>
   mutate(main_img = ifelse(is.na(main_img) == TRUE, "https://www.dontcrampmystyle.co.uk/wp-content/uploads/2014/05/Light_Pastel_Purple_429585_i0-1.png", main_img))
 
+tbl_ext <- tbl_get |>
+  left_join(yday_tbl, by = "aesthetic") |>
+  mutate(change = yday_rank - rank) |>
+  mutate(change_lbl = ifelse(is.na(change), "new", ifelse(change==0, "none", ifelse(change>0, "up", "down")))) |>
+  mutate(change_html = ifelse(change_lbl == "new", 
+                              '<h4>NEW</h4>',
+                              ifelse(change_lbl == "none",
+                                     '',
+                                     ifelse(change_lbl == "up",
+                                            paste0('<h5>',change,'<strong>▲</strong></h5>'),
+                                            paste0('<h6>',abs(change),'<strong>▼</strong></h6>'))))) |>
+  select(-change, -change_lbl)
+
+
+
 code_list <- list(header_code)
 
 for (i in 1:100) {
   
+  change_html <- tbl_ext$change_html[i]
   aes_rank <- tbl_ext$rank[i]
   aes_name <- tbl_ext$aesthetic[i]
   main_img <- tbl_ext$main_img[i]
@@ -145,7 +159,8 @@ for (i in 1:100) {
 						<article class="thumb">
 							<a href="',main_img,'" class="image"><img src="',main_img,'" alt="',aes_name,' header image" /></a>
 							<h2>',aes_name,'</h2>
-						  <h3>',aes_rank,'</h3>
+						  <h3>',aes_rank,'</h3>',
+						  change_html,'
 							<a href = "',depop_results_link,'"><button>Shop ',aes_name,' on Depop</button></a></p>
 						</article>
        ')
@@ -165,3 +180,4 @@ write.table(code,
             quote = FALSE,
             col.names = FALSE,
             row.names = FALSE)
+
