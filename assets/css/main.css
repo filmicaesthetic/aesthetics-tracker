@@ -1276,6 +1276,10 @@ input, select, textarea {
 			right: 0;
 		}
 
+		.poptrox-popup .pic img {
+			height: 800px;
+		}
+
 		.poptrox-popup .caption {
 			padding: 2em 2em 0.1em 2em ;
 			background-image: -moz-linear-gradient(to top, rgba(16,16,16,0.45) 25%, rgba(16,16,16,0) 100%);
@@ -1292,7 +1296,7 @@ input, select, textarea {
 		}
 
 			.poptrox-popup .caption h2, .poptrox-popup .caption h3, .poptrox-popup .caption h4, .poptrox-popup .caption h5, .poptrox-popup .caption h6 {
-				margin: 0 0 0.5em 0;
+				display: none;
 			}
 
 			.poptrox-popup .caption p {
