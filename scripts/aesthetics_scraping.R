@@ -67,6 +67,20 @@ minus_words <- function(x) {
   
 }
 
+# get search results value function - handling errors
+get_res <- function(url) {
+  
+  tryCatch( { res <- url |>
+    read_html() |>
+    html_element(".Container-sc-__sc-1t5af73-0.Searchstyles__StyledContainer-sc-__sc-1ep2n60-0.ujpvx.PrZuM") |>
+    html_node("b") |>
+    html_text() }
+    , error = function(e) {res <<- NA})
+  
+  return(res)
+  
+}
+
 # function to look up search results on depop
 depop_results <- function(aurl) {
   
@@ -76,12 +90,8 @@ depop_results <- function(aurl) {
   neg_key <- minus_words(aurl)
   # create url string
   url_it <- paste0("https://www.depop.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27%20aesthetic%20",neg_key)
-  # get search results value
-  res <- url_it |>
-    read_html() |>
-    html_element(".Container-sc-__sc-1t5af73-0.Searchstyles__StyledContainer-sc-__sc-1ep2n60-0.ujpvx.PrZuM") |>
-    html_node("b") |>
-    html_text()
+  # get search results
+  res <- get_res(url_it)
   # convert to numeric
   res <- as.numeric(res)
   
