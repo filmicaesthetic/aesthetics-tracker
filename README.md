@@ -1,6 +1,6 @@
 aesthetics-tracker
 ================
-22 December, 2022
+24 December, 2022
 
 ## Aesthetic Trends
 
@@ -8,6 +8,11 @@ This project monitors the [Aesthetics
 Wiki](https://aesthetics.fandom.com/wiki/Aesthetics_Wiki) on Fandom.com
 for new aesthetics, and then checks Depop for the number of search
 results for the exact phrase + “aesthetic”.
+
+[Visit the Trending Aesthetics
+webpage](https://filmicaesthetic.github.io/aesthetics-tracker)
+
+[![](assets/img/webpage_screenshot.jpg)](https://filmicaesthetic.github.io/aesthetics-tracker)
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
