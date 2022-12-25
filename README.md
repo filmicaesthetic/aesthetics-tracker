@@ -1,6 +1,6 @@
 aesthetics-tracker
 ================
-24 December, 2022
+25 December, 2022
 
 ## Aesthetic Trends
 
