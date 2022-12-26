@@ -413,8 +413,8 @@ input, select, textarea {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			box-shadow: inset 0 0 0 2px #34a58e;
-			color: #34a58e !important;
+			box-shadow: inset 0 0 0 2px #a8eddd;
+			color: #a8eddd !important;
 		}
 
 			input[type="submit"]:hover:active,
@@ -423,7 +423,7 @@ input, select, textarea {
 			button:hover:active,
 			.button:hover:active {
 				background-color: rgba(52, 165, 142, 0.15);
-				color: #34a58e !important;
+				color: #a8eddd !important;
 			}
 
 		input[type="submit"].icon,
@@ -1064,6 +1064,19 @@ input, select, textarea {
 			table.alt tfoot {
 				border-top: 0;
 			}
+
+/* Float Button */
+
+.page-switch {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    background-color: #f06ecb;
+    font-family: "Rubik Mono One", sans-serif;
+    color: black;
+    padding: 1em 1em 1em 1em;
+    z-index: 999;
+}
 
 /* Panel */
 

@@ -12,7 +12,7 @@ header_code <- '<!DOCTYPE HTML>
 <html>
 	<head>
 	  	<!-- HTML Meta Tags -->
-		<title>Trending Aesthetics - Top 100</title>
+		<title>Trending Aesthetics - Hot 100</title>
 		<meta name="description" content="Hottest 100 aesthetics right now.">
                 <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -22,14 +22,14 @@ header_code <- '<!DOCTYPE HTML>
 		<!-- Facebook Meta Tags -->
 		<meta property="og:url" content="https://filmicaesthetic.github.io">
 		<meta property="og:type" content="website">
-		<meta property="og:title" content="Trending Aesthetics - Top 100">
+		<meta property="og:title" content="Trending Aesthetics - Hot 100">
 		<meta property="og:description" content="Hottest 100 aesthetics right now.">
 
 		<!-- Twitter Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image">
 		<meta property="twitter:domain" content="filmicaesthetic.github.io">
 		<meta property="twitter:url" content="https://filmicaesthetic.github.io">
-		<meta name="twitter:title" content="Trending Aesthetics - Top 100">
+		<meta name="twitter:title" content="Trending Aesthetics - Hot 100">
 		<meta name="twitter:description" content="Hottest 100 aesthetics right now.">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik%20Mono%20One">
@@ -42,7 +42,7 @@ header_code <- '<!DOCTYPE HTML>
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.html"><strong>Trending Aesthetics</strong><br>Top 100</a></h1>
+						<h1><a href="index.html"><strong>Trending Aesthetics</strong><br>Hot 100</a></h1>
 						<nav>
 							<ul>
 								<li><a href="#footer" class="icon solid fa-info-circle">Huh?</a></li>
@@ -54,7 +54,7 @@ header_code <- '<!DOCTYPE HTML>
 		  <div id="main">
 '
 
-footer_code <- '</div>
+footer_code <- '<div class="page-switch"><a href="https://filmicaesthetic.github.io/aesthetics-tracker">SEE TOP 100</a></div></div>
 
 				<!-- Footer -->
 					<footer id="footer" class="panel">
@@ -94,13 +94,25 @@ footer_code <- '</div>
                                               </html>'
 
 
-tbl <- read.csv("data/current_league_table.csv") |>
-  head(100)
+day_1 <- read.csv(paste0("data/", as.character(Sys.Date()),"_aesthetics.csv"))
+day_2 <- read.csv(paste0("data/", as.character(Sys.Date()-1),"_aesthetics.csv"))
+day_3 <- read.csv(paste0("data/", as.character(Sys.Date()-2),"_aesthetics.csv"))
+day_4 <- read.csv(paste0("data/", as.character(Sys.Date()-3),"_aesthetics.csv"))
+day_5 <- read.csv(paste0("data/", as.character(Sys.Date()-4),"_aesthetics.csv"))
+day_6 <- read.csv(paste0("data/", as.character(Sys.Date()-5),"_aesthetics.csv"))
+day_7 <- read.csv(paste0("data/", as.character(Sys.Date()-6),"_aesthetics.csv"))
 
-yday_tbl <- read.csv("data/prev_league_table.csv") |>
-  head(100) |>
-  mutate(yday_rank = row_number()) |>
-  select(aesthetic, yday_rank)
+
+all_days <- rbind(day_1, day_2, day_3, day_4, day_5, day_6, day_7)
+
+hot_tbl <- all_days |>
+  group_by(aesthetic) |>
+  filter(mean(depop_results) > 100) |>
+  mutate(day_diff = abs((depop_results - lag(depop_results)) / lag(depop_results))) |>
+  summarise(day_diff_med = median(day_diff, na.rm = TRUE)) |>
+  arrange(-day_diff_med)
+  
+
 
 # function to extract main image from wiki page
 get_main_img <- function(url) {
@@ -123,12 +135,18 @@ get_main_img <- function(url) {
 
 
 # create wiki url and extract images
-tbl_get <- tbl |>
-  mutate(aes_wiki_link = paste0("https://aesthetics.fandom.com/wiki/",gsub(" ", "_", gsub("2-Tone", "2 Tone", aesthetic)))) |>
+tbl_get <- hot_tbl |>
+  mutate(aes_wiki_link = paste0("https://aesthetics.fandom.com/wiki/",gsub(" ", "_", gsub("2-Tone", "2 Tone", gsub("Ms Paint", "MS Paint", aesthetic))))) |>
   mutate(rank = row_number()) |>
   rowwise() |>
   mutate(main_img = get_main_img(aes_wiki_link)) |>
   mutate(main_img = ifelse(is.na(main_img) == TRUE, "https://www.dontcrampmystyle.co.uk/wp-content/uploads/2014/05/Light_Pastel_Purple_429585_i0-1.png", main_img))
+
+yday_tbl <- read.csv("data/hot_100_current_league_table.csv") |>
+  select(aesthetic, yday_rank = rank)
+
+write.csv(yday_tbl, "data/hot_100_prev_league_table.csv", row.names = FALSE)
+write.csv(tbl_get, "data/hot_100_current_league_table.csv", row.names = FALSE)
 
 tbl_ext <- tbl_get |>
   left_join(yday_tbl, by = "aesthetic") |>
@@ -142,6 +160,8 @@ tbl_ext <- tbl_get |>
                                             paste0('<h5>',change,'<strong>▲</strong></h5>'),
                                             paste0('<h6>',abs(change),'<strong>▼</strong></h6>'))))) |>
   select(-change, -change_lbl)
+
+
 
 
 
@@ -160,7 +180,7 @@ for (i in 1:100) {
 							<a href="',main_img,'" class="image"><img src="',main_img,'" alt="',aes_name,' header image" /></a>
 							<h2>',aes_name,'</h2>
 						  <h3>',aes_rank,'</h3>',
-						  change_html,'
+						change_html,'
 							<a href = "',depop_results_link,'"><button>Shop ',aes_name,' on Depop</button></a></p>
 						</article>
        ')
@@ -176,7 +196,7 @@ code_list <- c(code_list, footer_code)
 code <- paste0(code_list)
 
 write.table(code, 
-            file='index.html', 
+            file='hot100.html', 
             quote = FALSE,
             col.names = FALSE,
             row.names = FALSE)

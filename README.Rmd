@@ -60,6 +60,7 @@ df_summ <- df_fl |>
   mutate(col_group = ifelse(diff_perc >= 0.03, "pos", ifelse(diff_perc > -0.03, "mid", "neg"))) |>
   mutate(rank = floor(rank(-max_date)))
 
+
 dly_tbl <- df_summ |>
   select(aesthetic, max_date, col_group)
 
@@ -85,8 +86,10 @@ shape_pal <- c("pos" = 2,
 font_add_google("Poppins", "Poppins")
 showtext_auto()
 
+df_summ <- df_summ |>
+  head(100)
+
 plot <- df_summ |>
-  head(100) |>
   ggplot(aes(y = reorder(aesthetic, max_date, sum))) +
   geom_col(aes(x = 1), fill = "#f0e9e9", width = 0.8) +
   geom_segment(aes(x = 0.7, xend = 0.9, yend = aesthetic, color = col_group), size = 6) +
