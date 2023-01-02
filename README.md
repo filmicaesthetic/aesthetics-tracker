@@ -1,6 +1,6 @@
 aesthetics-tracker
 ================
-01 January, 2023
+02 January, 2023
 
 ## Aesthetic Trends
 
