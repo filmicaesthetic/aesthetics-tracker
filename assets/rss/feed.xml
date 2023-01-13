@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <rss version="2.0">
 	<channel>
-		<title>What's New?</title>
-		<link>http://yihui.name</link>
+		<title>Trending Aesthetics</title>
+		<link>https://filmicaesthetic.github.io/aesthetics-tracker</link>
 		<description>Aesthetics Tracker</description>
 		<language>en-us</language>
-		<pubDate>Sun, 08 Jan 2023 22:54:38 GMT</pubDate>
-		<lastBuildDate>Sun, 08 Jan 2023 22:54:38 GMT</lastBuildDate>
-		<docs>http://yihui.name</docs>
+		<pubDate>Fri, 13 Jan 2023 20:06:42 GMT</pubDate>
+		<lastBuildDate>Fri, 13 Jan 2023 20:06:42 GMT</lastBuildDate>
+		<docs>https://www.github.com/filmicaesthetic</docs>
 		<generator>Function write.rss() in R package animation</generator>
-		<managingEditor>xie@yihui.name</managingEditor>
-		<webMaster>xie@yihui.name</webMaster>
+		<managingEditor>@filmicaesthetic</managingEditor>
+		<webMaster>@filmicaesthetic</webMaster>
 		<item>
 			<X>6</X>
 			<aesthetic>Babycore</aesthetic>
