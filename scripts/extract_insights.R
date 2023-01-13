@@ -70,6 +70,8 @@ dbAppendTable(con, "aes_textinsights", text_insights)
 # disconnect from db
 dbDisconnect(con, shutdown=TRUE)
 
+source("scripts/create_rss_feed.R")
+
 ## movement in top 20
 # list_overtaken <- function(df, start_rank, end_rank) {
 #   

@@ -2,13 +2,13 @@
 
 # write.rss function from old version of animation package
 `write.rss` <- function(file = "feed.xml", entry = "rss.csv", 
-                        xmlver = "1.0", rssver = "2.0", title = "What's New?", link = "http://yihui.name", 
-                        description = "A Website", language = "en-us", 
-                        copyright = "Copyright 2009, Yihui Xie", pubDate = Sys.time(), 
-                        lastBuildDate = Sys.time(), docs = "http://yihui.name", 
+                        xmlver = "1.0", rssver = "2.0", title = "Trending Aesthetics", link = "https://filmicaesthetic.github.io/aesthetics-tracker", 
+                        description = "Tracking most popular aesthetics right now", language = "en-us", 
+                        copyright = "", pubDate = Sys.time(), 
+                        lastBuildDate = Sys.time(), docs = "https://www.github.com/filmicaesthetic", 
                         generator = "Function write.rss() in R package animation", 
-                        managingEditor = "xie@yihui.name", 
-                        webMaster = "xie@yihui.name", 
+                        managingEditor = "@filmicaesthetic", 
+                        webMaster = "@filmicaesthetic", 
                         maxitem = 10, ...) {
   x = read.csv(entry, stringsAsFactors = FALSE, colClasses = "character")
   if (nrow(x) > maxitem) 
