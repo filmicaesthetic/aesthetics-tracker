@@ -120,8 +120,6 @@ get_main_img <- function(url) {
 
 
 
-
-
 # create wiki url and extract images
 tbl_get <- tbl |>
   mutate(aes_wiki_link = paste0("https://aesthetics.fandom.com/wiki/",gsub(" ", "_", gsub("2-Tone", "2 Tone", aesthetic)))) |>

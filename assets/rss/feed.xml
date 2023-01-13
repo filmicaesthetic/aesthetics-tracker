@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+	<channel>
+		<title>What's New?</title>
+		<link>http://yihui.name</link>
+		<description>Aesthetics Tracker</description>
+		<language>en-us</language>
+		<pubDate>Sun, 08 Jan 2023 22:54:38 GMT</pubDate>
+		<lastBuildDate>Sun, 08 Jan 2023 22:54:38 GMT</lastBuildDate>
+		<docs>http://yihui.name</docs>
+		<generator>Function write.rss() in R package animation</generator>
+		<managingEditor>xie@yihui.name</managingEditor>
+		<webMaster>xie@yihui.name</webMaster>
+		<item>
+			<X>6</X>
+			<aesthetic>Babycore</aesthetic>
+			<type>biggest_loss</type>
+			<description><![CDATA[Results for Babycore aesthetic decreased by 11% in the last 7 days.]]></description>
+			<img>https://static.wikia.nocookie.net/aesthetics/images/d/d6/Babycore.cover.jpeg</img>
+			<url>https://aesthetics.fandom.com/wiki/Babycore</url>
+			<date>2023-01-08</date>
+		</item>
+		<item>
+			<X>5</X>
+			<aesthetic>Surrealism</aesthetic>
+			<type>biggest_loss</type>
+			<description><![CDATA[Results for Surrealism aesthetic decreased by 13% in the last 7 days.]]></description>
+			<img>https://static.wikia.nocookie.net/aesthetics/images/2/2b/The_Elephant_Celebes.jpg</img>
+			<url>https://aesthetics.fandom.com/wiki/Surrealism</url>
+			<date>2023-01-08</date>
+		</item>
+		<item>
+			<X>4</X>
+			<aesthetic>VSCO</aesthetic>
+			<type>biggest_loss</type>
+			<description><![CDATA[Results for VSCO aesthetic decreased by 15% in the last 7 days.]]></description>
+			<img>https://static.wikia.nocookie.net/aesthetics/images/e/e4/Vsco-girl-collage.jpg</img>
+			<url>https://aesthetics.fandom.com/wiki/VSCO</url>
+			<date>2023-01-08</date>
+		</item>
+		<item>
+			<X>3</X>
+			<aesthetic>Lagenlook</aesthetic>
+			<type>biggest_loss</type>
+			<description><![CDATA[Results for Lagenlook aesthetic decreased by 16% in the last 7 days.]]></description>
+			<img>https://static.wikia.nocookie.net/aesthetics/images/b/bd/20882329_10155596540309935_4522418991994427364_n_large.jpg</img>
+			<url>https://aesthetics.fandom.com/wiki/Lagenlook</url>
+			<date>2023-01-08</date>
+		</item>
+		<item>
+			<X>2</X>
+			<aesthetic>Girl-Next-Door</aesthetic>
+			<type>biggest_gains</type>
+			<description><![CDATA[Results for Girl-Next-Door aesthetic increased by 83% in the last 7 days, moving up 26 places in the aesthetics popularity table.]]></description>
+			<img>https://static.wikia.nocookie.net/aesthetics/images/4/40/9k%3DVfhffse.jpeg</img>
+			<url>https://aesthetics.fandom.com/wiki/Girl-Next-Door</url>
+			<date>2023-01-08</date>
+		</item>
+		<item>
+			<X>1</X>
+			<aesthetic>Glitchcore</aesthetic>
+			<type>biggest_gains</type>
+			<description><![CDATA[Results for Glitchcore aesthetic increased by 142% in the last 7 days, moving up 44 places in the aesthetics popularity table.]]></description>
+			<img>https://static.wikia.nocookie.net/aesthetics/images/7/7d/Tumblr_7901f7f3bfa470ef641ac74d25d0f67b_9330f554_1280.png</img>
+			<url>https://aesthetics.fandom.com/wiki/Glitchcore</url>
+			<date>2023-01-08</date>
+		</item>
+	 </channel>
+</rss>

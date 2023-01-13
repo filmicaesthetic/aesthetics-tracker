@@ -16,6 +16,28 @@ This project monitors the [Aesthetics Wiki](https://aesthetics.fandom.com/wiki/A
 
 [![](assets/img/webpage_screenshot.jpg)](https://filmicaesthetic.github.io/aesthetics-tracker)
 
+## Project process
+
+The Aesthetics Tracker is updated daily around 1:30 GMT, scheduled with Github Actions.
+
+### Daily Web Scraping
+
+#### Scrape Aesthetics Wiki
+
+List of aesthetics, page URLs and other info are are scraped from Aesthetics Wiki.
+
+#### Scrape Depop
+
+The number of search results is then scraped from Depop for each aesthetic.
+
+### Database
+
+New records are added to a duckdb database for easy querying access to allow for further analysis.
+
+### Webpage
+
+Current data is passed to an HTML file to update the [Trending Aesthetics webpage](https://filmicaesthetic.github.io/aesthetics-tracker)
+
 
 ```{r echo=FALSE}
 
@@ -23,30 +45,22 @@ library(dplyr)
 library(ggplot2)
 library(tidyr)
 library(showtext)
+library(DBI)
+library(duckdb)
 
-files <- list.files("data")
-files <- files[grepl("aesthetics", files) == TRUE]
-
-df <- data.frame()
-
-for (i in 1:length(files)) {
-  
-  df_it <- read.csv(paste0("data/",files[i]))
-  
-  df <- rbind(df, df_it)
-  
-}
+df <- dbGetQuery(con, "SELECT aesthetic, 
+                 COALESCE(depop_results, 0) as depop_results,
+                 date
+                 FROM aes_depopresults
+                 LEFT JOIN aesthetics ON aes_depopresults.aes_id=aesthetics.aes_id")
 
 customGreen = "#71CA97"
-
 customRed = "#ff7f7f"
 ```
 
 ```{r echo = FALSE}
 
 df_fl <- df |>
-  select(-X) |>
-  replace_na(replace = list(depop_results = 0)) |>
   filter(date %in% c("2022-12-18", max(date))) |>
   pivot_wider(id_cols = c(aesthetic), names_from = "date", values_from = "depop_results")
 

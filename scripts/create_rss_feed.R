@@ -1,81 +1,62 @@
-## create feed of interesting insights
+## create rss feed from text insights
 
-library(dplyr)
+# write.rss function from old version of animation package
+`write.rss` <- function(file = "feed.xml", entry = "rss.csv", 
+                        xmlver = "1.0", rssver = "2.0", title = "What's New?", link = "http://yihui.name", 
+                        description = "A Website", language = "en-us", 
+                        copyright = "Copyright 2009, Yihui Xie", pubDate = Sys.time(), 
+                        lastBuildDate = Sys.time(), docs = "http://yihui.name", 
+                        generator = "Function write.rss() in R package animation", 
+                        managingEditor = "xie@yihui.name", 
+                        webMaster = "xie@yihui.name", 
+                        maxitem = 10, ...) {
+  x = read.csv(entry, stringsAsFactors = FALSE, colClasses = "character")
+  if (nrow(x) > maxitem) 
+    x = x[(nrow(x) - maxitem + 1):nrow(x), ]
+  x = x[nrow(x):1, ] 
+  lcl = Sys.getlocale("LC_TIME")
+  Sys.setlocale("LC_TIME", "C")
+  pubDate = format(pubDate, "%a, %d %b %Y %H:%M:%S GMT")
+  lastBuildDate = format(lastBuildDate, "%a, %d %b %Y %H:%M:%S GMT")
+  cat("<?xml version", "=\"", xmlver, "\"?>\n", "<rss version=\"", 
+      rssver, "\">\n", "\t", "<channel>\n", "\t\t", "<title>", 
+      title, "</title>\n", "\t\t", "<link>", link, "</link>\n", 
+      "\t\t", "<description>", description, "</description>\n", 
+      "\t\t", "<language>", language, "</language>\n", "\t\t", 
+      "<pubDate>", pubDate, "</pubDate>\n", "\t\t", "<lastBuildDate>", 
+      lastBuildDate, "</lastBuildDate>\n", "\t\t", "<docs>", 
+      docs, "</docs>\n", "\t\t", "<generator>", generator, 
+      "</generator>\n", "\t\t", "<managingEditor>", managingEditor, 
+      "</managingEditor>\n", "\t\t", "<webMaster>", webMaster, 
+      "</webMaster>\n", file = file, sep = "")
+  extra = list(...)
+  if (length(extra)) {
+    tag1 = paste("\t\t<", names(extra), ">", sep = "")
+    tag2 = paste("</", names(extra), ">", sep = "")
+    cat(paste(tag1, extra, tag2, sep = "", collapse = "\n"), 
+        "\n", file = file, append = TRUE)
+  }
+  x[, "description"] = paste("<![CDATA[", x[, "description"], 
+                             "]]>", sep = "")
+  tag1 = paste("<", colnames(x), ">", sep = "")
+  tag2 = paste("</", colnames(x), ">", sep = "")
+  cat(paste("\t\t<item>", apply(x, 1, function(xx) paste("\t\t\t", 
+                                                         paste(tag1, xx, tag2, sep = "", collapse = "\n\t\t\t"), 
+                                                         sep = "")), "\t\t</item>", sep = "\n", collapse = "\n"), 
+      file = file, append = TRUE)
+  cat("\n\t", "</channel>", file = file, append = TRUE)
+  cat("\n</rss>", file = file, append = TRUE)
+  Sys.setlocale("LC_TIME", lcl)
+  cat("RSS feed created at:", file, "\n")
+}
 
-today <- read.csv(paste0("data/",Sys.Date(),"_aesthetics.csv")) |>
-  mutate(depop_results = ifelse(is.na(depop_results), 0, depop_results)) |>
-  select(aesthetic, cw_results = depop_results) |>
-  mutate(rank_cw = rank(-cw_results))
-lw <- read.csv(paste0("data/",Sys.Date() - 7,"_aesthetics.csv")) |>
-  mutate(depop_results = ifelse(is.na(depop_results), 0, depop_results)) |>
-  select(aesthetic, lw_results = depop_results) |>
-  mutate(rank_lw = rank(-lw_results))
+text <- dbGetQuery(con, "SELECT * FROM aes_textinsights")
 
-lw_comp <- today |>
-  left_join(lw, by = "aesthetic") |>
-  mutate(diff = cw_results - lw_results) |>
-  mutate(diff_perc = diff / lw_results) |>
-  mutate(tbl_mvmt = rank_lw - rank_cw) |> 
-  arrange(-diff_perc)
+# create rss feed
+rss <- text |>
+  arrange(desc(as.Date(date))) |>
+  head(20)
 
-## biggest gains
-
-big_gains <- lw_comp |>
-  filter(cw_results > 50, diff_perc > 0.2) |>
-  rowwise() |>
-  mutate(description = ifelse(diff_perc > 10, paste0("Huge spike in results for ",aesthetic," aesthetic in the last 7 days", ifelse(tbl_mvmt > 0, paste0(", moving up ", floor(tbl_mvmt), " places in the aesthetics popularity table."), ".")),
-                              paste0("Results for ",aesthetic," aesthetic increased by ",scales::percent(diff_perc, 1), " in the last 7 days", ifelse(tbl_mvmt > 0, paste0(", moving up ", floor(tbl_mvmt), " places in the aesthetics popularity table."), ".")))) |>
-  mutate(pubDate = Sys.Date()) |>
-  mutate(type = "biggest_gains") |>
-  select(aesthetic, description)
-
-## biggest losses
-
-big_loss <- lw_comp |>
-  arrange(diff_perc) |>
-  filter(cw_results > 50, diff_perc < -0.05) |>
-  rowwise() |>
-  mutate(description = ifelse(diff_perc < -0.5, paste0("Huge drop in results for ",aesthetic," aesthetic in the last 7 days", ifelse(tbl_mvmt < 0, paste0(", moving down ", floor(abs(tbl_mvmt)), " places in the aesthetics popularity table."), ".")),
-                              paste0("Results for ",aesthetic," aesthetic decreased by ",scales::percent(abs(diff_perc), 1), " in the last 7 days", ifelse(tbl_mvmt > 0, paste0(", moving down ", floor(abs(tbl_mvmt)), " places in the aesthetics popularity table."), ".")))) |>
-  mutate(pubDate = Sys.Date()) |>
-  mutate(type = "biggest_loss") |>
-  select(aesthetic, description)
-
-
-
-## movement in top 20
-# list_overtaken <- function(df, start_rank, end_rank) {
-#   
-#   aests <- df$aesthetic[df$rank_lw > start_rank & df$rank_lw <= end_rank]
-#   print(aests)
-#   if (length(aests) == 1) {
-#     res <- aests
-#   } else if (length(aests) == 2) {
-#     res <- paste(aests, sep = " & ")
-#   } else {
-#     last <- aests[length(aests)]
-#     aests_fil <- aests[1:(length(aests)-1)]
-#     
-#     res <- paste0(paste(aests_fil, sep = ", "), " & ", last)
-#   }
-#   
-#   return(res)
-# }
-# 
-# lw_comp |>
-#   filter(rank_cw <= 20 | rank_lw <= 20) |>
-#   arrange(rank_cw) |>
-#   filter(rank_lw != rank_cw) |>
-#   rowwise() |>
-#   mutate(description = ifelse(tbl_mvmt > 0, paste0(aesthetic, "has moved up", 
-#                                                     ifelse(tbl_mvmt == 1, "1 place", paste0(tbl_mvmt, "places")), 
-#                                                     "in the aesthetic popularity table, overtaking", list_overtaken(lw_comp, as.numeric(rank_lw), as.numeric(rank_cw))),""))
-
-## aesthetics going from 0 to some results
-# need to make a cumulative total for this to say they've had their "first" results.
-
-# from_zero <- lw_comp$aesthetic[lw_comp$diff > 0 & lw_comp$lw_results == 0]
-# from_zero_last <- from_zero[length(from_zero)]
-# from_zero <- from_zero[1:(length(from_zero)-1)]
-# 
-# from_zero_text <- paste0(paste(from_zero, sep = ", "), " & ", from_zero_last, " aesthetics have ")
+# write rss feed
+write.rss("assets/rss/feed.xml", entry = "data/rss_list.csv",
+          description = "Aesthetics Tracker")
