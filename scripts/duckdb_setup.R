@@ -21,7 +21,7 @@ aesthetics_list <- aesthetics_list |>
   mutate(aes_id = row_number()) |>
   select(aes_id, aesthetic, aes_link)
 
-# create duckdb
+# connect duckdb
 con <- dbConnect(duckdb(), 
                  dbdir="aesthetics_tracker.duckdb", 
                  read_only=FALSE)

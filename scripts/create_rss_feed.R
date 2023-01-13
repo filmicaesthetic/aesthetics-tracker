@@ -50,6 +50,11 @@
   cat("RSS feed created at:", file, "\n")
 }
 
+# connect duckdb
+con <- dbConnect(duckdb(), 
+                 dbdir="aesthetics_tracker.duckdb", 
+                 read_only=FALSE)
+
 text <- dbGetQuery(con, "SELECT * FROM aes_textinsights")
 
 # create rss feed
@@ -60,3 +65,6 @@ rss <- text |>
 # write rss feed
 write.rss("assets/rss/feed.xml", entry = "data/rss_list.csv",
           description = "Aesthetics Tracker")
+
+# disconnect from db
+dbDisconnect(con, shutdown=TRUE)
