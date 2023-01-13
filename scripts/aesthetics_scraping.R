@@ -11,28 +11,6 @@ library(purrr)
 source("scripts/web_scraping_functions.R")
 source("scripts/database_functions.R")
 
-# # url of aesthetics wiki list of aesthetics page
-# url <- 'https://aesthetics.fandom.com/wiki/List_of_Aesthetics'
-# 
-# # set url connection
-# url <-  url(url, "rb")
-# 
-# # extract all tables on page
-# url_html <- url |>
-#   read_html() |>
-#   html_nodes("ul") |>
-#   html_nodes("li") |>
-#   html_text2()
-# 
-# # close connection
-# close(url)
-# 
-# start <- str_which(url_html, "Single-Subject Aesthetics") + 1
-# end <- str_which(url_html, "Categories:") - 1
-# 
-# aes_df <- data.frame(aesthetic = c(url_html[start:end])) |>
-#   filter(aesthetic != "")
-
 # scrape aesthetics data from aesthetics wiki
 aes_raw <- get_aesthetics_list()
 
@@ -74,4 +52,7 @@ dbSendStatement(con, "DELETE FROM aes_depopresults WHERE date = CURRENT_DATE")
 
 # append new data to table
 dbAppendTable(con, "aes_depopresults", aes_db)
+
+# disconnect from db
+dbDisconnect(con, shutdown=TRUE)
 

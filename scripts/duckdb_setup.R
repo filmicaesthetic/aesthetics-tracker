@@ -118,3 +118,6 @@ ins_df <- data.frame(aesthetic = c("test"),
 
 # create blank aes_textinsights table
 dbCreateTable(con, "aes_textinsights", ins_df)
+
+# disconnect from db
+dbDisconnect(con, shutdown=TRUE)

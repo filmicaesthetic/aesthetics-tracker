@@ -5,9 +5,9 @@ library(DBI)
 library(duckdb)
 
 # create duckdb
-# con <- dbConnect(duckdb(), 
-#                  dbdir="aesthetics_tracker.duckdb", 
-#                  read_only=FALSE)
+con <- dbConnect(duckdb(),
+                 dbdir="aesthetics_tracker.duckdb",
+                 read_only=FALSE)
 
 # get today's data
 today <- dbGetQuery(con, "SELECT aesthetics.aesthetic, 
@@ -66,6 +66,9 @@ text_insights$date <- as.character(Sys.Date())
 
 # add to db
 dbAppendTable(con, "aes_textinsights", text_insights)
+
+# disconnect from db
+dbDisconnect(con, shutdown=TRUE)
 
 ## movement in top 20
 # list_overtaken <- function(df, start_rank, end_rank) {
