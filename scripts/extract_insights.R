@@ -5,9 +5,9 @@ library(DBI)
 library(duckdb)
 
 # create duckdb
-con <- dbConnect(duckdb(), 
-                 dbdir="aesthetics_tracker.duckdb", 
-                 read_only=FALSE)
+# con <- dbConnect(duckdb(), 
+#                  dbdir="aesthetics_tracker.duckdb", 
+#                  read_only=FALSE)
 
 # get today's data
 today <- dbGetQuery(con, "SELECT aesthetics.aesthetic, 
@@ -109,5 +109,5 @@ dbAppendTable(con, "aes_textinsights", text_insights)
 # from_zero <- lw_comp$aesthetic[lw_comp$diff > 0 & lw_comp$lw_results == 0]
 # from_zero_last <- from_zero[length(from_zero)]
 # from_zero <- from_zero[1:(length(from_zero)-1)]
-
-from_zero_text <- paste0(paste(from_zero, sep = ", "), " & ", from_zero_last, " aesthetics have ")
+# 
+# from_zero_text <- paste0(paste(from_zero, sep = ", "), " & ", from_zero_last, " aesthetics have ")
