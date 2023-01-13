@@ -6,11 +6,6 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-
-# connect to duckdb
-con <- dbConnect(duckdb(), 
-                 dbdir="aesthetics_tracker.duckdb", 
-                 read_only=FALSE)
 ```
 
 ## Aesthetic Trends
@@ -52,6 +47,11 @@ library(tidyr)
 library(showtext)
 library(DBI)
 library(duckdb)
+
+# connect to duckdb
+con <- dbConnect(duckdb(), 
+                 dbdir="aesthetics_tracker.duckdb", 
+                 read_only=FALSE)
 
 df <- dbGetQuery(con, "SELECT aesthetic, 
                  COALESCE(depop_results, 0) as depop_results,
