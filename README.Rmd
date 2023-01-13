@@ -69,7 +69,7 @@ customRed = "#ff7f7f"
 ```{r echo = FALSE}
 
 df_fl <- df |>
-  filter(date %in% c("2022-12-18", max(date))) |>
+  filter(date %in% c(as.Date("2022-12-18"), max(date))) |>
   pivot_wider(id_cols = c(aesthetic), names_from = "date", values_from = "depop_results")
 
 colnames(df_fl) <- c("aesthetic", "min_date", "max_date")
