@@ -128,7 +128,7 @@ tbl_get <- tbl |>
   mutate(main_img = get_main_img(aes_wiki_link)) |>
   mutate(main_img = ifelse(is.na(main_img) == TRUE, "https://www.dontcrampmystyle.co.uk/wp-content/uploads/2014/05/Light_Pastel_Purple_429585_i0-1.png", main_img))
 
-tbl_ext <- tbl_get |>
+tbl_chn <- tbl_get |>
   left_join(yday_tbl, by = "aesthetic") |>
   mutate(change = yday_rank - rank) |>
   mutate(change_lbl = ifelse(is.na(change), "new", ifelse(change==0, "none", ifelse(change>0, "up", "down")))) |>
@@ -141,13 +141,44 @@ tbl_ext <- tbl_get |>
                                             paste0('<h6>',abs(change),'<strong>▼</strong></h6>'))))) |>
   select(-change, -change_lbl)
 
+## BOUNCY ONES
 
+day_1 <- read.csv(paste0("data/", as.character(Sys.Date()),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_2 <- read.csv(paste0("data/", as.character(Sys.Date()-1),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_3 <- read.csv(paste0("data/", as.character(Sys.Date()-2),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_4 <- read.csv(paste0("data/", as.character(Sys.Date()-3),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_5 <- read.csv(paste0("data/", as.character(Sys.Date()-4),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_6 <- read.csv(paste0("data/", as.character(Sys.Date()-5),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_7 <- read.csv(paste0("data/", as.character(Sys.Date()-6),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_8 <- read.csv(paste0("data/", as.character(Sys.Date()-7),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+
+all_days <- rbind(day_1, day_2, day_3, day_4, day_5, day_6, day_7)
+
+hot_tbl <- all_days |>
+  group_by(aesthetic) |>
+  filter(mean(depop_results) > 100) |>
+  mutate(day_diff = abs((depop_results - lag(depop_results)) / lag(depop_results))) |>
+  summarise(day_diff_med = median(day_diff, na.rm = TRUE)) |>
+  arrange(-day_diff_med) |>
+  filter(day_diff_med > 0.02)
+
+tbl_ext <- tbl_chn |>
+  mutate(hot_chk = ifelse(aesthetic %in% hot_tbl$aesthetic, '<div class="icon solid fa-bolt"></div>', ''))
 
 code_list <- list(header_code)
 
 for (i in 1:100) {
   
   change_html <- tbl_ext$change_html[i]
+  hot_html <- tbl_ext$hot_chk[i]
   aes_rank <- tbl_ext$rank[i]
   aes_name <- tbl_ext$aesthetic[i]
   main_img <- tbl_ext$main_img[i]
@@ -158,7 +189,7 @@ for (i in 1:100) {
 							<a href="',main_img,'" class="image"><img src="',main_img,'" alt="',aes_name,' header image" /></a>
 							<h2>',aes_name,'</h2>
 						  <h3>',aes_rank,'</h3>',
-						  change_html,'
+						  change_html, hot_html,'
 							<a href = "',depop_results_link,'"><button>Shop ',aes_name,' on Depop</button></a></p>
 						</article>
        ')

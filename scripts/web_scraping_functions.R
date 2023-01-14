@@ -107,7 +107,7 @@ get_depop_results <- function(aes_df) {
     
     res <- rbind(res, res_it)
     
-    Sys.sleep(0.4)
+    Sys.sleep(runif(1, 0.45, 0.6))
     
   }
   

@@ -94,14 +94,22 @@ footer_code <- '<div class="page-switch"><a href="https://filmicaesthetic.github
                                               </html>'
 
 
-day_1 <- read.csv(paste0("data/", as.character(Sys.Date()),"_aesthetics.csv"))
-day_2 <- read.csv(paste0("data/", as.character(Sys.Date()-1),"_aesthetics.csv"))
-day_3 <- read.csv(paste0("data/", as.character(Sys.Date()-2),"_aesthetics.csv"))
-day_4 <- read.csv(paste0("data/", as.character(Sys.Date()-3),"_aesthetics.csv"))
-day_5 <- read.csv(paste0("data/", as.character(Sys.Date()-4),"_aesthetics.csv"))
-day_6 <- read.csv(paste0("data/", as.character(Sys.Date()-5),"_aesthetics.csv"))
-day_7 <- read.csv(paste0("data/", as.character(Sys.Date()-6),"_aesthetics.csv"))
-
+day_1 <- read.csv(paste0("data/", as.character(Sys.Date()),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_2 <- read.csv(paste0("data/", as.character(Sys.Date()-1),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_3 <- read.csv(paste0("data/", as.character(Sys.Date()-2),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_4 <- read.csv(paste0("data/", as.character(Sys.Date()-3),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_5 <- read.csv(paste0("data/", as.character(Sys.Date()-4),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_6 <- read.csv(paste0("data/", as.character(Sys.Date()-5),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_7 <- read.csv(paste0("data/", as.character(Sys.Date()-6),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
+day_8 <- read.csv(paste0("data/", as.character(Sys.Date()-7),"_aesthetics.csv")) |>
+  select(X, aesthetic, depop_results, date)
 
 all_days <- rbind(day_1, day_2, day_3, day_4, day_5, day_6, day_7)
 
