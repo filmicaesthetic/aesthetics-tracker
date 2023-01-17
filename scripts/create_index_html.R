@@ -205,7 +205,7 @@ code_list <- c(code_list, footer_code)
 code <- paste0(code_list)
 
 write.table(code, 
-            file='index.html', 
+            file='chk_index.html', 
             quote = FALSE,
             col.names = FALSE,
             row.names = FALSE)

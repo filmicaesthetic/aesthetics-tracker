@@ -22,6 +22,7 @@ jobs:
     - name: Install packages
       run: |
         R -e 'install.packages("dplyr")'
+        R -e 'install.packages("devtools")'
         R -e 'install.packages("stringr")'
         R -e 'install.packages("tidyr")'
         R -e 'install.packages("rvest")'
@@ -32,7 +33,7 @@ jobs:
         R -e 'install.packages("ggplot2")'
         R -e 'install.packages("showtext")'
         R -e 'install.packages("DBI")'
-        R -e 'install.packages("duckdb")'
+        R -e 'devtools::install_github("cran/duckdb@0.6.1")'
     # Run R script
     - name: Scrape
       run: Rscript scripts/aesthetics_scraping.R

@@ -1686,11 +1686,17 @@ input, select, textarea {
         transform: skewX(-10deg);
 				margin: 0;
 				position: absolute;
+				overflow: hidden;
 				z-index: 1;
 				text-transform: none;
 				vertical-align: top;
+        transition: 1.5s;
 			}
-
+			
+			.icon.solid.fa-bolt:hover {
+        width:5em;
+			}
+			
 			#main .thumb > h2 {
 				pointer-events: none;
 				top: 4.475em;
@@ -1717,6 +1723,7 @@ input, select, textarea {
 				text-shadow: #f2accf 0 -2px;
 				padding: 0em 0.4em 0em 0.4em;
 				margin: 0;
+        transform: skewX(-10deg);
 				position: absolute;
 				z-index: 1;
 				text-transform: none;
@@ -1726,12 +1733,13 @@ input, select, textarea {
 				pointer-events: none;
 				top: 5.49em;
 				font-size: 0.8em;
-				left: 1.7em;
+				left: 1.6em;
 				color: #000000;
 				background-color: #ffffff;
 				text-shadow: #f2accf 0 -2px;
 				padding: 0em 0.4em 0em 0.4em;
 				margin: 0;
+        transform: skewX(-10deg);
 				position: absolute;
 				z-index: 1;
 				text-transform: none;
@@ -1741,12 +1749,13 @@ input, select, textarea {
 				pointer-events: none;
 				top: 5.49em;
 				font-size: 0.8em;
-				left: 1.7em;
+				left: 1.6em;
 				color: #000000;
 				background-color: #73f0d3;
 				text-shadow: #f2accf 0 -2px;
 				padding: 0em 0.4em 0em 0.4em;
 				margin: 0;
+        transform: skewX(-10deg);
 				position: absolute;
 				z-index: 1;
 				text-transform: none;
@@ -1756,12 +1765,13 @@ input, select, textarea {
 				pointer-events: none;
 				top: 5.49em;
 				font-size: 0.8em;
-				left: 1.7em;
+				left: 1.6em;
 				color: #000000;
 				background-color: #f06ecb;
 				text-shadow: #a8eddd 0 -2px;
 				padding: 0em 0.4em 0em 0.4em;
 				margin: 0;
+        transform: skewX(-10deg);
 				position: absolute;
 				z-index: 1;
 				text-transform: none;
