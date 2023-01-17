@@ -11,6 +11,9 @@ jobs:
   autoscrape:
     # The type of runner that the job will run on
     runs-on: macOS-latest
+    
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     # Load repo and install R
     steps:
