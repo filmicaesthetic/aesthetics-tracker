@@ -32,7 +32,7 @@ add_new_aesthetics <- function(aes_df) {
           df_it <- df$info_box[i][[1]]
           df_it$aesthetic <- df$aesthetic[i]
           
-          info_box_raw <- rbind(info_box_test, df_it)
+          info_box_raw <- rbind(info_box_raw, df_it)
           
         }
         
