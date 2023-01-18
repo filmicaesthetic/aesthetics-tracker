@@ -41,8 +41,10 @@ add_new_aesthetics <- function(aes_df) {
     }
     
     info_box_df <- info_box_raw |>
-      left_join(aesthetics_list, "aesthetic") |>
+      left_join(df, "aesthetic") |>
       select(aes_id, headers, values)
+    
+    print(infO_box_df)
     
     if (nrow(info_box_df) > 0) {
       
@@ -51,10 +53,12 @@ add_new_aesthetics <- function(aes_df) {
       
     }
     
+    print(df)
+    
     for (i in 1:nrow(df)) {
       
       dbSendStatement(con, paste0("INSERT INTO aesthetics (aes_id, aesthetic, aes_link) VALUES ('",df$aes_id[i],"', '",df$aesthetic[i],"', '",df$aes_link[i],"');"))
-      dbSendStatement(con, paste0("INSERT INTO aes_wiki_img (aes_id, aesthetic, aes_link, main_img) VALUES ('",df$aes_id[i],"', '",df$aesthetic[i],"', '",df$aes_link[i],"', '",df$main_img[i],");"))
+      dbSendStatement(con, paste0("INSERT INTO aes_wiki_img (aes_id, aesthetic, aes_link, main_img) VALUES ('",df$aes_id[i],"', '",df$aesthetic[i],"', '",df$aes_link[i],"', '",df$main_img[i],"');"))
       
     }
     

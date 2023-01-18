@@ -12,10 +12,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: macOS-latest
     
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
-    # Load repo and install R
+        # Load repo and install R
     steps:
     - uses: actions/checkout@v2
     - uses: r-lib/actions/setup-r@v2
@@ -25,7 +22,6 @@ jobs:
     - name: Install packages
       run: |
         R -e 'install.packages("dplyr")'
-        R -e 'install.packages("devtools")'
         R -e 'install.packages("stringr")'
         R -e 'install.packages("tidyr")'
         R -e 'install.packages("rvest")'
@@ -36,7 +32,7 @@ jobs:
         R -e 'install.packages("ggplot2")'
         R -e 'install.packages("showtext")'
         R -e 'install.packages("DBI")'
-        R -e 'devtools::install_github("cran/duckdb@0.6.1")'
+        R -e 'install.packages("duckdb")'
     # Run R script
     - name: Scrape
       run: Rscript scripts/aesthetics_scraping.R

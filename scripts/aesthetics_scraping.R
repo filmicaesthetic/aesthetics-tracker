@@ -35,7 +35,7 @@ aes_df <- aes_raw |>
 aes_df$date <- as.character(Sys.Date())
 
 # save as csv
-write.csv(aes_df,paste0('data/',Sys.Date(),'_aesthetics','.csv'))
+write.csv(aes_df |> select(-aes_link),paste0('data/',Sys.Date(),'_aesthetics','.csv'))
 
 # add to db
 
