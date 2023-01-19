@@ -42,6 +42,7 @@ all_df <- all_df |>
 
 # select relevant columns for db
 all_df_db <- all_df |>
+  filter(aesthetic %in% aesthetics_list$aesthetic) |>
   select(aes_id, depop_results, date)
 
 # add aes_depopresults table to db
