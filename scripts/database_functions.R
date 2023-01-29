@@ -44,8 +44,6 @@ add_new_aesthetics <- function(aes_df) {
       left_join(df, "aesthetic") |>
       select(aes_id, headers, values)
     
-    print(infO_box_df)
-    
     if (nrow(info_box_df) > 0) {
       
       # append info box
