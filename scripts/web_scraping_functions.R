@@ -31,6 +31,7 @@ get_aesthetics_list <- function() {
   aes_df <- aes_df |>
     rowwise() |>
     mutate(aes_link = ifelse(substr(aes_link, 1, 4) == "http", aes_link, paste0("https://aesthetics.fandom.com", aes_link))) |>
+    mutate(aesthetic = gsub("'", "", aesthetic)) |>
     filter(aesthetic != "")
   
   return(aes_df)
