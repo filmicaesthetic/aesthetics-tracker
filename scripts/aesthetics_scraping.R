@@ -12,30 +12,32 @@ source("scripts/web_scraping_functions.R")
 source("scripts/database_functions.R")
 
 # scrape aesthetics data from aesthetics wiki
-aes_raw <- get_aesthetics_list()
+aes_raw <- read.csv(paste0("data/aeslist/",Sys.Date(),"_aestheticslist.csv"))
 
 # update aesthetics table
 
-# connect to duckdb
-con <- dbConnect(duckdb(), 
-                 dbdir="aesthetics_tracker.duckdb", 
-                 read_only=FALSE)
+# connect to duckdb - reboot if duckdb package updated
+tryCatch(con <- dbConnect(duckdb(), 
+                          dbdir="aesthetics_tracker.duckdb", 
+                          read_only=FALSE),
+         error = function(e){
+           
+           file.remove("aesthetics_tracker.duckdb")
+           
+           source("scripts/duckdb_setup.R")
+           
+           con <- dbConnect(duckdb(), 
+                            dbdir="aesthetics_tracker.duckdb", 
+                            read_only=FALSE)
+           
+         })
+
 
 # insert any new aesthetics into database
 add_new_aesthetics(aes_raw)
 
-# get depop results for each aesthetic
-res <- get_depop_results(aes_raw)
-
-# join results to df
-aes_df <- aes_raw |>
-  left_join(res, by = "aesthetic")
-
-# add date column
-aes_df$date <- as.character(Sys.Date())
-
-# save as csv
-write.csv(aes_df |> select(-aes_link),paste0('data/',Sys.Date(),'_aesthetics','.csv'))
+# read depop results csv
+aes_df <- read.csv(paste0('data/',Sys.Date(),'_aesthetics','.csv')) |> select(-X)
 
 # add to db
 
