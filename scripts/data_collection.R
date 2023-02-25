@@ -25,3 +25,19 @@ aes_df$date <- as.character(Sys.Date())
 
 # save as csv
 write.csv(aes_df |> select(-aes_link),paste0('data/',Sys.Date(),'_aesthetics','.csv'))
+
+# get top 100
+aes_100 <- aes_df |>
+  arrange(-depop_results) |>
+  head(100) |>
+  select(-depop_results)
+
+# get etsy results
+etsy <- get_etsy_results(aes_100)
+
+# add date
+etsy_df <- etsy |>
+  mutate(date = as.character(Sys.Date()))
+
+# save to csv
+write.csv(etsy_df, paste0("data/",Sys.Date(),"_etsyresults.csv"))

@@ -56,6 +56,28 @@ depop_results <- function(aurl, aes_df) {
   
 }
 
+# function to look up search results on etsy
+etsy_results <- function(aurl, aes_df) {
+  
+  # replace & with %26 to search correctly
+  aurl <- gsub("&", "%26", aurl)
+  # get negative keyword string
+  neg_key <- minus_words(aurl, aes_df)
+  # create url string
+  url_it <- paste0("https://www.etsy.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27%20aesthetic%20decor%20",neg_key)
+  # get search results value
+  res <- url_it |>
+    read_html() |>
+    html_element(".wt-text-right-xs.wt-text-left-md.wt-pr-md-0.wt-pr-xs-1") |>
+    html_node("span") |>
+    html_text()
+  # convert to numeric
+  res <- as.numeric(gsub("[^0-9]", "", res))
+  
+  return(res)
+  
+}
+
 # function to return negative keyword string to avoid including other aesthetics
 minus_words <- function(x, aes_df) {
   
@@ -105,6 +127,27 @@ get_depop_results <- function(aes_df) {
     
     res_it <- data.frame(aesthetic = c(aes_df$aesthetic[i]),
                          depop_results = c(depop_results(aes_df$aesthetic[i], aes_df)))
+    
+    res <- rbind(res, res_it)
+    
+    Sys.sleep(runif(1, 0.45, 0.6))
+    
+  }
+  
+  return(res)
+  
+}
+
+get_etsy_results <- function(aes_df) {
+  
+  # set up blank vector
+  res <- data.frame()
+  
+  # collect search results
+  for (i in 1:nrow(aes_df)) {
+    
+    res_it <- data.frame(aesthetic = c(aes_df$aesthetic[i]),
+                         etsy_results = c(tryCatch(etsy_results(aes_df$aesthetic[i], aes_df), error = function(e) {return(NA)})))
     
     res <- rbind(res, res_it)
     

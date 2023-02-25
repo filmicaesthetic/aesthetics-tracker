@@ -1,13 +1,13 @@
 
-# function to look up search results on depop
-etsy_results <- function(aurl) {
+# function to look up search results on etsy
+etsy_results <- function(aurl, aes_df) {
   
   # replace & with %26 to search correctly
   aurl <- gsub("&", "%26", aurl)
   # get negative keyword string
-  neg_key <- minus_words(aurl)
+  neg_key <- minus_words(aurl, aes_df)
   # create url string
-  url_it <- paste0("https://www.etsy.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27%20aesthetic%20",neg_key)
+  url_it <- paste0("https://www.etsy.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27%20aesthetic%20decor%20",neg_key)
   # get search results value
   res <- url_it |>
     read_html() |>
@@ -21,7 +21,7 @@ etsy_results <- function(aurl) {
   
 }
 
-etsy_results("Cottagecore")
+etsy_results("Cottagecore", aes_df)
 
 # set up blank vector
 etsy_res <- data.frame()
@@ -30,7 +30,7 @@ etsy_res <- data.frame()
 for (i in 1:nrow(aes_df)) {
   
   etsy_res_it <- data.frame(aesthetic = c(aes_df$aesthetic[i]),
-                       depop_results = c(depop_results(aes_df$aesthetic[i])))
+                       etsy_results = c(etsy_results(aes_df$aesthetic[i])))
   
   etsy_res <- rbind(etsy_res, etsy_res_it)
   
