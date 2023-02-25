@@ -11,7 +11,7 @@ source("scripts/web_scraping_functions.R")
 # scrape aesthetics data from aesthetics wiki
 aes_raw <- get_aesthetics_list()
 
-write.csv(paste0("data/aeslist/",Sys.Date(),"_aestheticslist.csv"), row.names = FALSE)
+write.csv(aes_raw, paste0("data/aeslist/",Sys.Date(),"_aestheticslist.csv"), row.names = FALSE)
 
 # get depop results for each aesthetic
 res <- get_depop_results(aes_raw)
