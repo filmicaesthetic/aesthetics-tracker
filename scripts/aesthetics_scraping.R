@@ -22,7 +22,7 @@ tryCatch(con <- dbConnect(duckdb(),
                           read_only=FALSE),
          error = function(e){
            
-           file.remove("aesthetics_tracker.duckdb")
+           tryCatch(file.remove("aesthetics_tracker.duckdb"))
            
            source("scripts/duckdb_setup.R")
            
