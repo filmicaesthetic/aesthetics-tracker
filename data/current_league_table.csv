@@ -1,244 +1,235 @@
 "aesthetic","max_date","col_group"
-"Summer",18961,"neg"
-"Cottagegore",18476,"pos"
-"Fairycore",13231,"pos"
-"Minimalism",10027,"neg"
-"Spring",9856,"mid"
-"Alternative",8967,"mid"
-"Kidcore",7626,"pos"
-"E-Boy",4947,"neg"
-"Bohemian",4920,"neg"
-"Pearly",4257,"mid"
-"Western",4022,"pos"
-"Halloween",3608,"neg"
-"Decora",3205,"neg"
-"Christmas",2779,"neg"
-"Dollette",2696,NA
+"Cottagecore",23834,"pos"
+"E-Girl",17904,"neg"
+"Hippie",13297,"neg"
+"Spring",9888,"mid"
+"Alternative",8966,"mid"
+"Kidcore",7637,"pos"
+"E-Boy",4951,"neg"
+"Bohemian",4936,"neg"
+"Baddie",4556,"neg"
+"Pearly",4269,"mid"
+"Western",4033,"pos"
+"Babygirl",3840,"neg"
+"Decora",3207,"neg"
+"Christmas",2787,"neg"
 "Whimsigothic",2585,NA
-"Playboy",2291,"neg"
-"Biker",2146,"pos"
-"Regency",1872,"pos"
-"Avant-garde",1799,"pos"
-"Balletcore",1682,NA
-"Angelcore",1424,"pos"
-"Gorpcore",1287,"pos"
-"Comfy/Cozy",1262,"mid"
-"Gorecore",1249,"pos"
-"Hip-Hop",1148,"pos"
-"Maximalism",1065,"neg"
-"Country",1005,"pos"
-"Lovecore",984,"pos"
-"VSCO",928,"pos"
+"Stoner",2345,"neg"
+"Vampire",1934,"pos"
+"Dreamy",1927,"mid"
+"Regency",1880,"pos"
+"Balletcore",1719,NA
+"Psychedelica",1607,"mid"
+"Peach",1502,"neg"
+"Scoutcore",1420,"mid"
+"Gorecore",1252,"pos"
+"Hip-Hop",1150,"pos"
+"Maximalism",1066,"neg"
+"Lovecore",983,"pos"
+"Lounge",971,"neg"
+"Cyberpunk",951,"pos"
 "Pin-up",847,"pos"
-"Earthcore",842,"pos"
-"McBling",818,"pos"
-"Pride flags",811,"neg"
-"Medieval",795,"pos"
-"Mermaid",794,"neg"
-"Tropical",782,"mid"
-"Softie",776,"pos"
-"Princesscore",755,"pos"
-"Back-to-School",727,"neg"
+"McBling",819,"pos"
+"Pride flags",809,"neg"
+"Mermaid",802,"neg"
+"Cybergoth",784,"pos"
+"Tropical",784,"mid"
 "Teddies",726,"neg"
-"Princecore",711,"pos"
+"Princecore",716,"pos"
+"Kinderwhore",682,"pos"
 "Steampunk",682,"pos"
-"Steelpunk",617,"pos"
-"Vaporwave",575,"mid"
-"Gyaru",573,"pos"
-"Thrasher",549,"neg"
-"Weirdcore",549,"pos"
-"Royalcore",543,"pos"
-"Post-Punk",522,"neg"
-"Diner",507,"neg"
+"Gyaru",580,"pos"
+"Thrasher",568,"neg"
+"Diner",510,"neg"
+"Drain",489,"pos"
 "Tomboy",483,"neg"
-"Dullcore",447,"pos"
-"Milk",426,"neg"
-"Lo-Fi",416,"pos"
-"Winter",393,"neg"
-"Barbiecore",359,"pos"
-"Androgynous",358,"pos"
-"2-Tone",347,"pos"
-"Biopunk",346,"pos"
-"Cutecore",342,"pos"
+"Lo-Fi",415,"pos"
+"Winter",396,"neg"
+"Boujee",369,"pos"
+"Barbiecore",361,"pos"
+"Biopunk",345,"pos"
 "Clowncore",324,"neg"
-"Boujee",319,"neg"
-"Furry",311,"pos"
 "Rockabilly",306,"neg"
-"Y2K",297,"neg"
-"Scrapbook",273,"mid"
-"Gothcore",273,"mid"
-"Celtic",267,"pos"
-"Techwear",261,"neg"
+"Y2K",299,"neg"
+"Scrapbook",272,"mid"
+"Celtic",266,"pos"
+"Techwear",262,"neg"
 "Athlete",257,"mid"
-"Nymphet",253,"pos"
-"Naturecore",252,"pos"
-"Bimbocore",208,"pos"
-"Babycore",204,"pos"
-"Plant Mom",173,"neg"
-"Cabincore",163,"mid"
-"Lagenlook",163,"pos"
-"Neko",150,"pos"
+"Nymphet",256,"pos"
+"Baroque",240,"neg"
+"Magical Girls",229,"pos"
+"Otaku",228,"neg"
+"Babycore",206,"pos"
+"Gamine",184,"pos"
+"Coastal Grandmother",181,"neg"
+"Witchcore",175,"mid"
+"Plant Mom",174,"neg"
+"Wonderland",172,"pos"
+"Lagenlook",164,"pos"
 "Pirate",138,"neg"
-"Bombacore",137,"pos"
-"Normcore",134,"neg"
-"Acubi",131,"pos"
+"Normcore",135,"neg"
 "Jersey Shore",128,"pos"
-"XO",128,"neg"
-"Post-Apocalyptic",123,"pos"
-"Pixel Cutie",121,"pos"
+"Pixel Cutie",127,"pos"
+"XO",127,"neg"
+"Bombacore",123,"pos"
+"Post-Apocalyptic",121,"pos"
 "Raver",115,"neg"
 "Surrealism",115,"pos"
-"Trashy Raver",115,NA
+"Prairiecore",114,"pos"
 "Nostalgiacore",114,"pos"
-"Prairiecore",113,"pos"
-"Equestrian",110,"pos"
-"Delicate Sweet",103,"neg"
+"Crackhead",110,"pos"
 "Honeycore",100,"neg"
-"Femme Fatale",96,"pos"
+"Femme Fatale",98,"pos"
 "VSCO Preppy",93,"pos"
-"Pretty Preppy",92,"pos"
+"Preppy",92,"pos"
 "Mushroomcore",91,"pos"
-"Geek",86,"pos"
+"Geek",87,"pos"
+"Coquette",82,"pos"
+"Wanderlust",81,"pos"
 "Modernism",80,"mid"
-"BDSM",71,"neg"
+"Deathcore",80,"neg"
+"Australiana",80,NA
+"Rainbowcore",71,"pos"
+"Britpop",68,"pos"
 "Cyberghetto",68,"mid"
-"Bloomcore",65,"neg"
+"Bloomcore",67,"neg"
+"Greaser",65,"pos"
+"Dreamcore",61,"neg"
 "Pixiecore",59,"pos"
-"Romanticism",56,"pos"
-"Forestpunk",55,"pos"
-"Girl-Next-Door",53,"pos"
-"Wetcore",52,"pos"
-"Funky Seasons",51,"neg"
+"Flapper",56,"pos"
+"Girl-Next-Door",54,"pos"
 "Printcore",50,"neg"
-"Shoegaze",50,"neg"
 "Thriftcore",50,"pos"
-"Tacticool",48,"pos"
+"Shoegaze",49,"neg"
 "Angura",48,NA
 "Seapunk",47,"pos"
-"Hyperpop",44,"pos"
+"Nautical",42,"pos"
 "Viking",41,"mid"
 "Farmers Daughter",41,NA
+"Trenchcore",40,"neg"
+"Spacecore",38,"neg"
+"Ravencore",37,"pos"
 "C-Pop",35,"neg"
-"Metalheart",33,"neg"
-"Metalcore",32,"neg"
+"Waif",35,"pos"
+"Metalheart",34,"neg"
+"Glitchcore",32,"pos"
 "Werewolf",32,"mid"
-"Sharpies",31,"mid"
+"Ragecore",31,"pos"
+"Anti-Fashion",31,"neg"
 "Devilcore",30,"pos"
 "Kuromicore",30,"pos"
+"Wormcore",30,"neg"
+"Warmcore",27,"neg"
 "Long Island",26,"neg"
-"Film Noir",24,"neg"
+"Ukiyo-e",24,"mid"
+"French Girly",22,"pos"
 "Grandmillenial",22,"pos"
-"Retro-Futurism",22,"neg"
 "Ancient Egypt",22,"mid"
-"Vulture Culture",21,"neg"
+"Retro-Futurism",21,"neg"
 "Expressionism",21,"pos"
-"French Girly",20,"pos"
 "Crustpunk",20,"pos"
-"Craftcore",18,"mid"
-"Kogal",18,"pos"
-"Crowcore",17,"neg"
+"Beatnik",19,"neg"
+"Cagole",19,"mid"
 "Queencore",17,"mid"
 "Queercore",17,"mid"
-"Synthwave",17,"pos"
-"Urbancore",16,"pos"
 "Americana",15,"pos"
 "Foodie",15,"mid"
-"Historical Americana",15,"pos"
-"Kingcore",15,"mid"
-"Grandparentcore",13,"pos"
-"English Major",12,"pos"
-"Femboy",12,"neg"
-"Ghostcore",12,"pos"
+"Femboy",13,"neg"
+"Nerdcore",13,"mid"
 "Gloomcore",12,"neg"
-"Happycore",12,"neg"
 "Deathrock",11,"neg"
 "Grifes",11,"pos"
-"Nerdcore",11,"neg"
+"Groundcore",11,"pos"
 "Sparklecore",11,"pos"
-"Rivethead",10,"pos"
+"Studyblr",10,"neg"
 "Trashcore",10,"neg"
+"Rivethead",9,"pos"
 "Yandere",9,"neg"
-"I-spy",9,NA
-"Mind Murder",9,NA
+"Mosscore",8,"pos"
+"Solarpunk",8,"neg"
 "Villagecore",8,"mid"
 "Eshay",8,NA
 "Bauhaus",7,"neg"
+"Darkcore",7,"neg"
 "Holosexual",7,"mid"
-"Morute",7,"mid"
 "Technical Scene",7,"pos"
-"Villaincore",7,"mid"
-"Campcore",6,"neg"
+"Scene",7,"pos"
+"Bubblegum Bitch",6,"pos"
 "Cyberpop",6,"pos"
 "Roaring 20s",6,"neg"
-"Shanzhai",6,"neg"
-"Juggalo",6,"pos"
-"Bubblegum Bitch",5,"pos"
-"Cholo",5,"mid"
+"Vacation Dadcore",6,"neg"
+"Sloanie",6,NA
 "Decopunk",5,"pos"
 "Desertwave",5,"pos"
-"Dracopunk",5,"pos"
-"Heatwave",5,"mid"
-"Voidcore",5,"pos"
-"Cargopunk",5,"pos"
+"Skinheads",5,"neg"
+"Wabi-Sabi",5,"neg"
+"Petcore",5,NA
+"Acidwave",4,"pos"
 "Auroracore",4,"mid"
 "Autumn",4,"pos"
+"Concore",4,"neg"
 "Cyberdelic",4,"pos"
+"Dieselpunk",4,"pos"
+"Junglecore",4,"pos"
+"Studyplace",4,"pos"
 "Teethcore",4,"pos"
 "Cryptidcore",4,"neg"
-"Disco",4,NA
 "Smilecore",4,NA
 "Cyberprep",3,"pos"
-"Gopnik",3,"mid"
 "Hellenic",3,"pos"
+"Hydrogen",3,"mid"
+"Nuclear",3,"pos"
 "Palewave",3,"pos"
 "Pink Parisian",3,"neg"
 "Rollerwave",3,"pos"
+"Technocore",3,"pos"
 "Plaguecore",3,"pos"
-"80s Ballroom",3,NA
+"Gopnik",2,"neg"
+"Heistcore",2,"neg"
 "Hikecore",2,"mid"
+"Joyride",2,"pos"
+"Labcore",2,"pos"
 "Mad Scientist",2,"mid"
 "Mod",2,"pos"
 "Mythpunk",2,"pos"
-"Post-Impressionism",2,"mid"
+"Paleocore",2,"mid"
 "Rusticcore",2,"pos"
-"Scrapper",2,"mid"
-"Twee",2,"neg"
+"Unicorncore",2,"neg"
 "Cartooncore",2,"mid"
-"Traumacore",2,"neg"
-"Virgos Tears",2,NA
+"Nerd",2,"pos"
 "Zombiecore",2,NA
+"Afro-Victorian",1,"pos"
 "Atompunk",1,"pos"
 "Bardcore",1,"mid"
-"Bronzepunk",1,"mid"
+"Chav",1,"mid"
 "Christcore",1,"mid"
-"Danish Pastel",1,"pos"
 "Daydreampunk",1,"mid"
 "Dionysism",1,"neg"
+"Fanfare",1,"mid"
 "Hackercore",1,"mid"
+"Hallyu",1,"mid"
+"Medicalcore",1,"neg"
+"Metal",1,"mid"
+"Neo-Tokyo",1,"mid"
 "Pachuco",1,"mid"
 "Racaille",1,"pos"
-"Ratcore",1,"mid"
-"Rotcore",1,"pos"
-"Southern Belle",1,"mid"
+"Salvagepunk",1,"pos"
 "Stilyagi",1,"pos"
+"Stonepunk",1,"mid"
 "Suprematism",1,"mid"
 "VARIOUSXYZ",1,"pos"
-"Wizardcore",1,"pos"
-"Youthquake",1,"pos"
 "Bastardcore",1,"mid"
-"Coffee House/Cafe",1,"mid"
-"Nerd",1,"mid"
 "Pre-Raphaelite",1,"neg"
 "Doodlecore",1,NA
+"Nanchatte Seifuku",1,NA
 "Rocketpunk",1,NA
-"Skeuomorphism",1,NA
 "Mizuiro",1,NA
+"2-Tone",0,"neg"
 "2014 Girly Tumblr",0,NA
 "2K Animecore",0,NA
 "Abstract Tech",0,NA
-"Acidwave",0,"neg"
+"Acubi",0,"neg"
 "Adventure Pulp",0,NA
-"Afro-Victorian",0,NA
 "After Hours",0,"neg"
 "Alien",0,"neg"
 "Analog Horror",0,NA
@@ -252,127 +243,126 @@
 "Art Nouveau",0,NA
 "Autumn Academia",0,NA
 "Avant Apocalypse",0,NA
-"Babygirl",0,"neg"
-"Baddie",0,"neg"
+"Avant-garde",0,"neg"
+"Back-to-School",0,"neg"
 "Baltic Violence Tumblr",0,NA
-"Baroque",0,"neg"
+"BDSM",0,"neg"
 "Beach Bunny",0,NA
 "Beach Day",0,NA
-"Beatnik",0,"neg"
+"Biker",0,"neg"
 "Black-Holed Meme",0,NA
 "Bodikon",0,"neg"
 "Bookstore Girl",0,NA
 "Bosozoku",0,"neg"
 "Breakcore",0,"neg"
-"Britpop",0,"neg"
+"Bronzepunk",0,"neg"
 "Bubblegum Witch",0,NA
+"Cabincore",0,"neg"
+"Campcore",0,"neg"
 "Carnivalcore",0,NA
 "Cartelcore",0,NA
 "Casino",0,"neg"
 "Cassette Futurism",0,NA
 "Changelingcore",0,NA
-"Chav",0,"neg"
 "Cheiron Crush",0,NA
 "Cherry Emoji Twitter",0,NA
+"Cholo",0,"neg"
 "City Pop",0,NA
 "Classic Lolita",0,NA
 "Classicism",0,"neg"
 "Cleancore",0,"neg"
 "Clockpunk",0,NA
 "Club Kids",0,NA
-"Coastal Grandmother",0,"neg"
+"Cutecore",0,"neg"
+"Comfy/Cozy",0,"neg"
 "Common White Girl",0,NA
-"Concore",0,"neg"
 "Constructivism",0,"neg"
 "Corporate",0,NA
 "Corporate Memphis",0,NA
 "Corporate Punk",0,NA
-"Cottagecore",0,"neg"
 "Coquette Academia",0,NA
-"Coquette",0,"neg"
 "Cozy Childhood Hideaway",0,NA
-"Crackhead",0,"neg"
+"Craftcore",0,"neg"
 "Cripplepunk",0,NA
+"Crowcore",0,"neg"
 "Cubism",0,"neg"
 "Cuddle Party",0,NA
 "Cultcore",0,NA
 "Cult Party Kei",0,NA
-"Cybergoth",0,"neg"
 "Cybergrunge",0,"neg"
-"Cyberpunk",0,"neg"
+"Danish Pastel",0,NA
 "Dark Academia",0,NA
 "Dark Fantasy",0,NA
 "Dark Naturalism",0,NA
 "Dark Nautical",0,NA
 "Dark Nymphet",0,NA
 "Dark Paradise",0,NA
-"Darkcore",0,"neg"
 "Dazecore",0,"neg"
 "De Stijl",0,NA
+"Delicate Sweet",0,"neg"
 "Desi Romantic Academia",0,NA
 "Dethereal",0,NA
-"Dieselpunk",0,"neg"
 "Dolly Kei",0,NA
 "Downtown Girl",0,NA
+"Dracopunk",0,"neg"
 "Dragoncore",0,"neg"
-"Drain",0,"neg"
-"Dreamcore",0,"neg"
-"Dreamy",0,"neg"
 "Dual Kawaii",0,NA
+"Dullcore",0,"neg"
 "Dungeon Synth",0,NA
-"E-Girl",0,"neg"
 "Electro Swing",0,NA
+"English Major",0,"neg"
+"Equestrian",0,"neg"
 "Erokawa",0,NA
 "Ethereal",0,NA
 "Europunk",0,NA
 "Fairy Grunge",0,NA
 "Fairy Kei",0,NA
 "Fairy Tale",0,NA
-"Fanfare",0,"neg"
+"Fairycore",0,"neg"
 "Fashwave",0,NA
 "Femcel Weeaboo",0,NA
-"Flapper",0,"neg"
+"Film Noir",0,"neg"
 "Flat Design",0,NA
 "Folk Punk",0,NA
 "French Girl",0,NA
 "Frutiger Aero",0,"neg"
+"Funky Seasons",0,"neg"
 "Futurism",0,NA
 "Gadgetpunk",0,NA
 "Game Night",0,NA
 "Gamercore",0,NA
-"Gamine",0,"neg"
 "Gen X Soft Club",0,NA
+"Ghostcore",0,"neg"
 "Glam Rock",0,NA
-"Glitchcore",0,"neg"
 "Glowwave",0,NA
 "Goblincore",0,"neg"
 "Golden Age of Detective Fiction",0,NA
 "Golden Hour",0,NA
 "Gothic",0,NA
 "Gothic Lolita",0,NA
-"Greaser",0,"neg"
+"Grandparentcore",0,"neg"
 "Grindhouse",0,NA
-"Groundcore",0,"neg"
 "Grunge",0,NA
 "Gurokawa",0,"neg"
-"Hallyu",0,"neg"
+"Halloween",0,"neg"
+"Happycore",0,"neg"
 "Hatecore",0,NA
 "Hauntology",0,NA
 "Haussmann Paris",0,NA
 "Health Goth",0,NA
-"Heistcore",0,"neg"
+"Heatwave",0,"neg"
 "Hermaphroditus",0,NA
 "Hermitpunk",0,NA
 "Hexatron",0,NA
 "Hi-NRG",0,NA
 "High School Dream",0,NA
 "Hime Lolita",0,NA
-"Hippie",0,"neg"
 "Hipster",0,"neg"
+"Historical Americana",0,"neg"
 "Horror",0,NA
 "Horror Academia",0,NA
 "Hot Topic",0,NA
-"Hydrogen",0,"neg"
+"Hyperpop",0,"neg"
 "Icepunk",0,"neg"
 "Imaginarium",0,NA
 "Indie",0,"neg"
@@ -383,19 +373,16 @@
 "Italo Disco",0,"neg"
 "Italian Mafia",0,NA
 "Italian Renaissance",0,NA
-"Joyride",0,"neg"
 "Jungle Grunge",0,NA
-"Junglecore",0,"neg"
 "Karasu Zoku",0,NA
 "Kawaii",0,NA
 "Kawaii Gamer",0,NA
 "Key West Kitten",0,NA
 "Kid Science",0,NA
 "Kimoicore",0,NA
-"Kinderwhore",0,"neg"
+"Kingcore",0,"neg"
 "King Gas",0,NA
 "La Sape",0,NA
-"Labcore",0,"neg"
 "Laborwave",0,NA
 "Larme Kei",0,NA
 "Late 2000s Elementary School",0,NA
@@ -408,32 +395,31 @@
 "Lit Kid",0,NA
 "Lobotomy-Chic",0,NA
 "Lolita",0,NA
-"Lounge",0,"neg"
 "Lunarpunk",0,NA
 "Macaute",0,NA
 "Magewave",0,NA
-"Magical Girls",0,"neg"
 "Maidcore",0,NA
 "Mallgoth",0,"neg"
 "Mall Ninja",0,NA
-"Medicalcore",0,"neg"
 "MTV Green Sky",0,NA
 "Memphis",0,NA
-"Metal",0,"neg"
+"Metalcore",0,"neg"
 "Metrosexual",0,NA
 "Miami Metro",0,NA
 "Midwest Gothic",0,NA
 "Military",0,NA
+"Milk",0,"neg"
+"Minimalism",0,"neg"
 "Minivan Rock",0,NA
 "Miscellaneous Academia",0,NA
 "Mori Kei",0,NA
+"Morute",0,"neg"
 "Mulchcore",0,NA
-"Mosscore",0,"neg"
 "Musical Academia",0,NA
-"Nautical",0,"neg"
+"Naturecore",0,"neg"
 "Nazi Chic",0,NA
+"Neko",0,"neg"
 "Neo-Romanism",0,NA
-"Neo-Tokyo",0,"neg"
 "New England Gothic",0,NA
 "New Age",0,NA
 "New Money",0,NA
@@ -441,7 +427,6 @@
 "New Wave",0,NA
 "Night Luxe",0,NA
 "Northerness",0,NA
-"Nuclear",0,"neg"
 "Nu-Goth",0,"neg"
 "Ocean Academia",0,NA
 "Ocean Grunge",0,NA
@@ -451,37 +436,36 @@
 "Old Web",0,NA
 "Onii Kei",0,NA
 "Oshare Kei",0,NA
-"Otaku",0,"neg"
 "Otherkin",0,"neg"
 "Pale Grunge",0,NA
-"Paleocore",0,"neg"
 "Paramilitary",0,NA
 "Party Animal",0,NA
 "Pastel Academia",0,NA
 "Pastel Goth",0,NA
 "Pastel Punk",0,NA
 "PC Music",0,NA
-"Peach",0,"neg"
 "Peoplehood",0,NA
 "Photorealism",0,NA
 "Pink Princess",0,NA
 "Pink Pilates Princess",0,NA
+"Playboy",0,"neg"
 "Pop Art",0,NA
 "Pop Kei",0,NA
+"Post-Impressionism",0,"neg"
+"Post-Punk",0,"neg"
 "Post-rock",0,"neg"
 "Powwow Step",0,NA
 "Prehistoricore",0,NA
-"Preppy",0,"neg"
+"Pretty Preppy",0,"neg"
+"Princesscore",0,"neg"
 "Progressive Academia",0,NA
 "Purism",0,"neg"
 "Quality Tumblr",0,NA
 "Queer Academia",0,NA
-"Ragecore",0,"neg"
-"Rainbowcore",0,"neg"
 "Rainy Day",0,NA
 "Randumb",0,NA
 "Rangercore",0,NA
-"Ravencore",0,"neg"
+"Ratcore",0,"neg"
 "Real Life Super Hero",0,NA
 "Realism",0,NA
 "Reefwave",0,NA
@@ -493,51 +477,53 @@
 "Romantic Academia",0,NA
 "Romantic Goth",0,NA
 "Romantic Italian",0,NA
+"Romanticism",0,"neg"
+"Rotcore",0,NA
+"Royalcore",0,"neg"
 "Sad people",0,NA
 "Salon Kei",0,NA
-"Salvagepunk",0,NA
 "Sandalpunk",0,NA
 "Sanriocore",0,"neg"
 "Schizowave",0,NA
 "Science Academia",0,NA
-"Scoutcore",0,"neg"
+"Scrapper",0,"neg"
 "Selkiecore",0,NA
 "Shabby Chic",0,NA
+"Shanzhai",0,"neg"
+"Sharpies",0,"neg"
 "Shibuya Punk",0,NA
 "Shironuri",0,"neg"
 "Sigilkore",0,NA
 "Skater",0,"neg"
-"Skinheads",0,"neg"
 "Slutcore",0,NA
 "Snow Bunny",0,NA
 "Soft Apocalypse",0,NA
 "Soft Grunge",0,NA
 "Soft indie",0,NA
 "Soft Macabre",0,NA
+"Softie",0,"neg"
 "Soggy",0,"neg"
-"Solarpunk",0,"neg"
+"Southern Belle",0,"neg"
 "Southern Gothic",0,NA
 "Sovietwave",0,NA
-"Spacecore",0,"neg"
 "Space Cowboy",0,NA
 "Spiritcore",0,NA
 "Starrflesh",0,NA
+"Steelpunk",0,"neg"
 "Stimwave",0,NA
-"Stonepunk",0,"neg"
-"Stoner",0,"neg"
 "Stripcore",0,NA
-"Studyblr",0,"neg"
-"Studyplace",0,"neg"
 "Suburban Gothic",0,NA
 "Sukeban",0,NA
+"Summer",0,"neg"
 "Superflat Pop",0,NA
 "Surf Crush",0,NA
 "Surreal Memer",0,NA
 "Swenkas",0,NA
 "Swordpunk",0,NA
+"Synthwave",0,"neg"
+"Tacticool",0,"neg"
 "Takenokozoku",0,NA
 "Tanbi Kei",0,NA
-"Technocore",0,"neg"
 "Technozen",0,NA
 "Teenqueen",0,NA
 "Terrorwave",0,NA
@@ -551,47 +537,46 @@
 "Trad Goth",0,NA
 "Traditional Korean",0,"neg"
 "Trailer Park Princess",0,NA
-"Trenchcore",0,"neg"
 "Trendercore",0,NA
 "Trillwave",0,NA
 "Tumblewave",0,NA
 "Tupinipunk",0,NA
 "Tweencore",0,"neg"
-"Ukiyo-e",0,"neg"
-"Unicorncore",0,"neg"
+"Twee",0,"neg"
 "Urban Fantasy",0,NA
+"Urbancore",0,"neg"
 "Utopian Scholastic",0,NA
-"Vacation Dadcore",0,"neg"
-"Vampire",0,"neg"
+"Vaporwave",0,"neg"
 "Vectorbloom",0,NA
 "Vectorheart",0,NA
 "Vibrant Academia",0,NA
 "Victorian",0,NA
 "Victorian Goth",0,NA
+"Villaincore",0,"neg"
 "Vintage British Sportsman",0,NA
 "Vintage Parisian",0,NA
 "Visual Kei",0,NA
+"VSCO",0,"neg"
+"Voidcore",0,"neg"
 "Voidpunk",0,NA
 "Vorticism",0,NA
-"Wabi-Sabi",0,"neg"
-"Waif",0,"neg"
+"Vulture Culture",0,"neg"
 "Waldorf",0,"neg"
-"Wanderlust",0,"neg"
-"Warmcore",0,"neg"
 "Weathercore",0,NA
 "Web Creep",0,NA
 "Weeaboo",0,NA
+"Weirdcore",0,"neg"
+"Wetcore",0,"neg"
 "Wild Child",0,NA
 "Winter Fairy Coquette",0,NA
 "Witchy Academia",0,NA
 "Witch House",0,NA
-"Witchcore",0,"neg"
-"Wonderland",0,"neg"
-"Wormcore",0,"neg"
+"Wizardcore",0,NA
 "Writer Academia",0,NA
 "Wuxia",0,NA
 "Yakuza",0,"neg"
 "Yanki",0,NA
+"Youthquake",0,NA
 "Yume Kawaii",0,NA
 "Acid Pixie",0,NA
 "Aetherpunk",0,NA
@@ -599,57 +584,69 @@
 "Agropeople",0,NA
 "American Pioneers",0,NA
 "American Tourist Traps",0,NA
+"Androgynous",0,"neg"
+"Angelcore",0,"neg"
 "Anglocore",0,"neg"
 "Antique Grunge",0,NA
-"Anti-Fashion",0,"neg"
 "Art Academia",0,NA
 "Art Hoe",0,NA
+"Bimbocore",0,"neg"
 "Bizarro Fiction",0,NA
 "Bubble Bujo",0,NA
 "Bubble Goth",0,NA
 "Camp",0,"neg"
+"Cargopunk",0,"neg"
 "Chaotic Academia",0,NA
 "Chic Modernist",0,NA
 "Christian Girl Autumn",0,NA
 "Chunyu",0,NA
 "Classic Academia",0,NA
 "Club",0,NA
+"Coffee House/Cafe",0,"neg"
 "Coffinwood",0,NA
+"Cottagegore",0,"neg"
+"Country",0,"neg"
 "Cryptid Academia",0,NA
 "Cyber Fairy Grunge",0,NA
 "CyberneticPunk",0,NA
 "Cyberparadism",0,NA
 "DarkErrorcore",0,NA
 "Darkest Academia",0,NA
-"Deathcore",0,"neg"
 "Drugcore",0,NA
+"Earthcore",0,"neg"
 "ElectroPop 08",0,NA
 "Emo",0,NA
 "Fairy Academia",0,NA
 "Fantasy",0,NA
 "Fauvism",0,NA
 "Feralcore",0,"neg"
+"Forestpunk",0,"neg"
 "Frogcore",0,"neg"
+"Furry",0,"neg"
 "Glam Girl",0,NA
 "Goblin Academia",0,NA
+"Gorpcore",0,"neg"
 "Goth",0,NA
+"Gothcore",0,"neg"
 "Green Academia",0,NA
 "Hipness Purgatory",0,NA
 "Hustlewave",0,NA
 "Impressionism",0,NA
+"Juggalo",0,"neg"
 "Knightcore",0,NA
+"Kogal",0,"neg"
 "Meatcore",0,NA
+"Medieval",0,"neg"
 "Midwest Emo",0,NA
 "Miniaturecore",0,NA
 "Mote Kei",0,NA
 "Nanopunk",0,NA
 "Party Kei",0,NA
-"Psychedelica",0,"neg"
 "Punk",0,NA
 "Roguecore",0,NA
-"Scene",0,"neg"
 "Sizz",0,NA
 "Snowdrop",0,"neg"
+"Traumacore",0,"neg"
 "Yami Kawaii",0,NA
 "Yankeecore",0,NA
 "1950s Suburbia",0,NA
@@ -658,42 +655,45 @@
 "2020 Alt",0,NA
 "2K1",0,NA
 "2K7",0,NA
+"80s Ballroom",0,NA
 "Ah Beng",0,NA
-"Australiana",0,NA
 "Australian Outback",0,NA
 "Cyber Stylin’",0,NA
+"Disco",0,NA
 "Dollar store vernacular",0,NA
+"Dollette",0,NA
 "FantasY2K",0,NA
 "Frutiger Eco",0,NA
 "Frutiger Metro",0,NA
 "Glamorous Los Angeles",0,NA
 "Helvetica Aqua Aero",0,NA
 "Indiecraft",0,NA
+"I-spy",0,NA
 "Kiwiana",0,NA
 "Korean Cozy Beige",0,NA
+"Mind Murder",0,NA
 "MS Paint",0,NA
-"Nanchatte Seifuku",0,NA
 "NATOwave",0,NA
 "Neoclassicism",0,NA
 "Newweb",0,NA
-"Petcore",0,NA
 "Phony Bureaucracy",0,NA
 "Shamate",0,NA
 "Sigma Male",0,NA
-"Sloanie",0,NA
+"Skeuomorphism",0,NA
 "Spy Fiction",0,NA
 "Taisho Roman",0,NA
 "TangoCore",0,NA
 "Teenage Dream",0,NA
 "Toxic Core",0,NA
+"Trashy Raver",0,NA
 "Victorian Urban Poverty",0,NA
+"Virgos Tears",0,NA
 "Woodland goth",0,NA
 "Bro",0,NA
 "Elizabethan England",0,NA
 "Adventurecore",0,"neg"
 "Asian Baby Girl",0,NA
 "Ballet Academia",0,NA
-"Cagole",0,"neg"
 "Fantasy Astronomy",0,NA
 "Jamcore",0,NA
 "Nintencore",0,NA
