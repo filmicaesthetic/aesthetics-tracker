@@ -43,10 +43,12 @@ depop_results <- function(aurl, aes_df) {
   
   # replace & with %26 to search correctly
   aurl <- gsub("&", "%26", aurl)
-  # get negative keyword string
-  neg_key <- minus_words(aurl, aes_df)
+  # get negative keyword string - negative keywords not working in depop search anymore
+  #neg_key <- minus_words(aurl, aes_df)
+  neg_key <- ""
   # create url string
   url_it <- paste0("https://www.depop.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27%20aesthetic%20",neg_key)
+  print(url_it)
   # get search results
   res <- get_res(url_it)
   # convert to numeric
@@ -61,8 +63,9 @@ etsy_results <- function(aurl, aes_df) {
   
   # replace & with %26 to search correctly
   aurl <- gsub("&", "%26", aurl)
-  # get negative keyword string
-  neg_key <- minus_words(aurl, aes_df)
+  # get negative keyword string - removing to match depop
+  #neg_key <- minus_words(aurl, aes_df)
+  neg_key <- ""
   # create url string
   url_it <- paste0("https://www.etsy.com/search/?q=","%27",gsub(" ", "%20", aurl),"%27%20aesthetic%20decor%20",neg_key)
   # get search results value
@@ -228,12 +231,23 @@ get_info_box <- function(url) {
 # get search results value function - handling errors
 get_res <- function(url) {
   
-  tryCatch( { res <- url |>
-    read_html() |>
-    html_element(".Container-sc-__sc-1t5af73-0.Searchstyles__StyledContainer-sc-__sc-1ep2n60-0.ujpvx.PrZuM") |>
-    html_node("b") |>
-    html_text() }
-    , error = function(e) {res <<- NA})
+  res <- NA
+  attempt <- 1
+  
+  while(is.na(res) & attempt <= 3) {
+    
+    tryCatch( { res <- url |>
+      read_html() |>
+      html_element(".Container-sc-__sc-1t5af73-0.Searchstyles__StyledContainer-sc-__sc-1ep2n60-0.ujpvx.PrZuM") |>
+      html_node("b") |>
+      html_text() }
+      , error = function(e) {res <<- NA})
+    
+    attempt <- attempt + 1
+    
+    Sys.sleep(0.4)
+    
+  }
   
   return(res)
   
